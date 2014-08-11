@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Use the Service Proxy: static endpoint pattern to provide loose coupling between service requesters and service providers."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Log subflow for the Service Proxy: static endpoint pattern</title>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">Log subflow for the <span>Service Proxy: static endpoint</span> pattern</h1>
+	<p class="shortdesc">
+	When logging is enabled, the Log subflow logs requests and replies, according 
+	to the user-defined properties:
+	<span class="msobjprop">RequestLoggingOn</span> and <span class="msobjprop">ResponseLoggingOn</span>. 
+	</p>
+	<p>
+	Log messages are written as persistent WebSphere MQ messages to a WebSphere MQ queue. 
+	These log messages are processed separately in accordance with the standard practices 
+	within your organization. 
+	The message log contains the original message and the following information in an MQRFH2 header:
+	</p>
+	<ul>
+		<li>
+			Time stamp
+		</li>
+		<li>
+			Broker name
+		</li>
+		<li>
+			Message flow name
+		</li>
+		<li>
+			Service details
+		</li>
+		<li>
+			Status (1 = request, 2 = reply, -2 = fault)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Back">Back to the Service Proxy: static endpoint pattern specification</a>
+</body>
+</html>

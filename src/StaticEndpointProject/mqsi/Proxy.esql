@@ -1,0 +1,49 @@
+BROKER SCHEMA mqsi
+
+/**
+ * Copyright (c) 2014 IBM Corporation and other Contributors
+ *
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *     IBM - initial implementation
+**/
+
+-- This uses a database node as it is (currently) the most
+-- efficient way of making changes to the local environment
+CREATE Database MODULE Initialise_Request_Parameters
+
+	CREATE FUNCTION main() RETURNS BOOLEAN BEGIN
+		-- Set the operation name from the input context and the target provider address from the flow variable
+		SET LocalEnvironment.Destination.SOAP.Request.Operation = Root.SOAP.Context.operation;
+		SET LocalEnvironment.Variables.StatusCode = 1;
+		RETURN true;
+	END;
+END MODULE;
+
+-- This uses a database node as it is (currently) the most
+-- efficient way of making changes to the local environment
+CREATE Database Module SetReplyStatus
+
+	CREATE FUNCTION Main () RETURNS BOOLEAN
+	BEGIN
+		-- When a reply has been received set status to 2 for log recording
+		SET LocalEnvironment.Variables.StatusCode = 2;
+		Return TRUE;
+	END;
+END MODULE;
+
+-- This uses a database node as it is (currently) the most
+-- efficient way of making changes to the local environment
+CREATE Database Module SetFaultStatus
+
+	CREATE FUNCTION Main () RETURNS BOOLEAN
+	BEGIN
+		-- When a fault is returned from the service call set status to -2 for log recording
+		SET LocalEnvironment.Variables.StatusCode = -2;
+		Return TRUE;
+	END;
+END MODULE;

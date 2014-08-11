@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Use the Service Proxy: static endpoint pattern to provide loose coupling between service requesters and service providers."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Error subflow for the Service Proxy: static endpoint pattern</title>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Error subflow for the <span>Service Proxy: static endpoint</span> pattern</h1>
+</div>
+<p class="shortdesc">If an error is caught during the message flow processing, the Error subflow is called 
+and an error response is returned to the client indicating that the request was not successfully completed.</p> 
+<p>If you have configured the pattern instance to enable error messages, a message is written to the error 
+queue. The following actions are taken by the Error subflow:</p>
+<ol>
+<li>The Error subflow builds a SOAP fault message that is returned to the service requester indicating 
+that the request was not successful. The SOAP fault includes the details of the exception that caused 
+the message flow to fail.</li>
+<li>If you have configured the pattern parameters to include error messages and the user-defined property: 
+	<span class="msobjprop">ErrorLoggingOn</span> is selected, an error message is prepared and
+	written to the error queue.
+<p>Details of the exception are written as an XML message. These details include:</p>
+	<ul>
+	<li>Broker name</li>
+	<li>Flow name</li>
+	<li>Time stamp</li>
+	<li>Status Code:
+		<ul>
+		<li>1 (when request has been forwarded)</li>
+		<li>2 (if the provider has replied)</li>
+		<li>-2 (if the provider returns a fault)</li>
+		</ul></li>
+	<li>Service name</li>
+	<li>Service namespace</li>
+	<li>Port</li>
+	<li>Port type</li>
+	<li>Operation</li>
+	<li>Target end point</li>
+	<li>Summary of the exception data</li>
+	</ul>
+	<p>The summary of the exception data contains the message flow label, error number, text description, 
+	and a list of inserts giving further details.</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="Back">Back to the Service Proxy: static endpoint pattern</a>
+</body>
+</html>

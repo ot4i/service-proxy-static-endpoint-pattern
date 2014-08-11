@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<capture:plugins>
+    <modelVersion>1.0.0.0</modelVersion>
+    <plugin pluginLocale="en-GB" pluginPath="com/ibm/etools/mft/pattern/sv/ssp" pluginRootRelativePath="/" pluginRootAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/" pluginName="com.ibm.etools.mft.pattern.sv.ssp" docPluginName="com.ibm.etools.mft.pattern.sv.ssp.doc" nlsPluginName="com.ibm.etools.mft.pattern.sv.ssp.nl1" nlsDocPluginName="com.ibm.etools.mft.pattern.sv.ssp.doc.nl1" pluginRelativePath="/com.ibm.etools.mft.pattern.sv.ssp" pluginAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/com.ibm.etools.mft.pattern.sv.ssp" docRelativePath="/com.ibm.etools.mft.pattern.sv.ssp.doc" docAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/com.ibm.etools.mft.pattern.sv.ssp.doc" nlsRelativePath="/com.ibm.etools.mft.pattern.sv.ssp.nl1" nlsAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/com.ibm.etools.mft.pattern.sv.ssp.nl1" nlsDocRelativePath="/com.ibm.etools.mft.pattern.sv.ssp.doc.nl1" nlsDocAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/com.ibm.etools.mft.pattern.sv.ssp.doc.nl1">
+        <pluginId>Id1453bc122bc93a35373747c4e76</pluginId>
+        <displayName>Pattern Plug-in</displayName>
+        <package>com.ibm.etools.mft.pattern.sv.ssp</package>
+        <description>Service Proxy: static endpoint pattern</description>
+        <version>1.0.0.0</version>
+        <provider>IBM</provider>
+        <categories/>
+        <patterns>
+            <pattern patternKey="com_ibm_etools_mft_pattern_sv_ssp_pattern" patternPath="com/ibm/etools/mft/pattern/sv/ssp/pattern" resourcesPath=".." patternTemplatePath="pattern" patternRelativePath="/com.ibm.etools.mft.pattern.sv.ssp" patternAbsolutePath="C:/Users/IBM_ADMIN/IBM/IntegrationToolkit90/patterns_workspace/com.ibm.etools.mft.pattern.sv.ssp">
+                <patternId>Id1453bc122bc9e72fee2a2d793e1</patternId>
+                <package>com.ibm.etools.mft.pattern.sv.ssp.pattern</package>
+                <parentPackage>com.ibm.etools.mft.pattern.sv.sp</parentPackage>
+                <templatePackage>pattern</templatePackage>
+                <displayName>Static Endpoint</displayName>
+                <schema/>
+                <referencedProjects>
+                    <referencedProject>
+                        <referencedProjectId>Id147c47a73a44e729e2712ee07f2</referencedProjectId>
+                        <displayName>StaticEndpointProject</displayName>
+                        <enabled>true</enabled>
+                        <customProject>false</customProject>
+                        <prefixProjectName>true</prefixProjectName>
+                        <expression></expression>
+                        <referenceId></referenceId>
+                        <folders>
+                            <folder>
+                                <folderName>root</folderName>
+                                <relativePath></relativePath>
+                                <enabled>true</enabled>
+                                <files>
+                                    <file fileName=".project" isTransformOnGenerate="true" filePath="pattern/templates/StaticEndpointProject/" fileExtension=".data">
+                                        <fileName>.project</fileName>
+                                        <relativePath>.project</relativePath>
+                                        <enabled>true</enabled>
+                                        <targets/>
+                                    </file>
+                                    <file fileName="application.descriptor" isTransformOnGenerate="false" filePath="pattern/templates/StaticEndpointProject/" fileExtension=".data">
+                                        <fileName>application.descriptor</fileName>
+                                        <relativePath>application.descriptor</relativePath>
+                                        <enabled>false</enabled>
+                                        <targets/>
+                                    </file>
+                                </files>
+                                <folders>
+                                    <folder>
+                                        <folderName>mqsi</folderName>
+                                        <relativePath>mqsi</relativePath>
+                                        <enabled>true</enabled>
+                                        <files>
+                                            <file fileName="Error.esql" isTransformOnGenerate="false" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Error.esql</fileName>
+                                                <relativePath>mqsi/Error.esql</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="Error.subflow" isTransformOnGenerate="true" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Error.subflow</fileName>
+                                                <relativePath>mqsi/Error.subflow</relativePath>
+                                                <enabled>false</enabled>
+                                                <targets>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Error.Write_Error_To_Queue.queueManagerName</targetId>
+                                                        <displayName>FCMComposite_1_7.queueManagerName</displayName>
+                                                        <enabled>false</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_7</nodeId>
+                                                        <propertyId>queueManagerName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.mq.MQOutputQueueManagerEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Error.Write_Error_To_Queue.queueName</targetId>
+                                                        <displayName>FCMComposite_1_7.queueName</displayName>
+                                                        <enabled>false</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_7</nodeId>
+                                                        <propertyId>queueName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.mq.MQQueueNameEditor</editorId>
+                                                    </target>
+                                                </targets>
+                                            </file>
+                                            <file fileName="Log.esql" isTransformOnGenerate="false" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Log.esql</fileName>
+                                                <relativePath>mqsi/Log.esql</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="Log.subflow" isTransformOnGenerate="true" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Log.subflow</fileName>
+                                                <relativePath>mqsi/Log.subflow</relativePath>
+                                                <enabled>false</enabled>
+                                                <targets>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Log.MQOutput.queueManagerName</targetId>
+                                                        <displayName>FCMComposite_1_2.queueManagerName</displayName>
+                                                        <enabled>false</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_2</nodeId>
+                                                        <propertyId>queueManagerName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.mq.MQOutputQueueManagerEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Log.MQOutput.queueName</targetId>
+                                                        <displayName>FCMComposite_1_2.queueName</displayName>
+                                                        <enabled>false</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_2</nodeId>
+                                                        <propertyId>queueName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.mq.MQQueueNameEditor</editorId>
+                                                    </target>
+                                                </targets>
+                                            </file>
+                                            <file fileName="Proxy.esql" isTransformOnGenerate="false" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Proxy.esql</fileName>
+                                                <relativePath>mqsi/Proxy.esql</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets/>
+                                            </file>
+                                            <file fileName="Proxy.msgflow" isTransformOnGenerate="true" filePath="pattern/templates/StaticEndpointProject/mqsi" fileExtension=".data">
+                                                <fileName>Proxy.msgflow</fileName>
+                                                <relativePath>mqsi/Proxy.msgflow</relativePath>
+                                                <enabled>true</enabled>
+                                                <targets>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.wsdlFileName</targetId>
+                                                        <displayName>FCMComposite_1_8.wsdlFileName</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_8</nodeId>
+                                                        <propertyId>wsdlFileName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.WSDLNamePropertyEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.validateMaster</targetId>
+                                                        <displayName>FCMComposite_1_8.validateMaster</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_8</nodeId>
+                                                        <propertyId>validateMaster</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>Id147c47a76394efee103f4e8f923</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.ValidateMasterForOpaqueParsingAndBuildTreePropertyEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.urlSelector</targetId>
+                                                        <displayName>FCMComposite_1_8.urlSelector</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_8</nodeId>
+                                                        <propertyId>urlSelector</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.soap.http.SOAP_Over_HTTP_URLPropertyEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.validateMaster</targetId>
+                                                        <displayName>FCMComposite_1_10.validateMaster</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_10</nodeId>
+                                                        <propertyId>validateMaster</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>Id147c47a766479689dea3160926</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.ValidateMasterForOpaqueParsingAndBuildTreePropertyEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.webServiceURL</targetId>
+                                                        <displayName>FCMComposite_1_10.webServiceURL</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_10</nodeId>
+                                                        <propertyId>webServiceURL</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.soap.http.SOAP_Over_HTTP_WebServicesURLPropertyEditor</editorId>
+                                                    </target>
+                                                    <target>
+                                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.wsdlFileName</targetId>
+                                                        <displayName>FCMComposite_1_10.wsdlFileName</displayName>
+                                                        <enabled>true</enabled>
+                                                        <type>NodeProperty</type>
+                                                        <nodeId>FCMComposite_1_10</nodeId>
+                                                        <propertyId>wsdlFileName</propertyId>
+                                                        <schema>
+                                                            <maxOccurs>1</maxOccurs>
+                                                            <minOccurs>0</minOccurs>
+                                                            <type>xsd:string</type>
+                                                        </schema>
+                                                        <editorId>com.ibm.etools.mft.ibmnodes.editors.WSDLNamePropertyEditor</editorId>
+                                                    </target>
+                                                </targets>
+                                            </file>
+                                        </files>
+                                        <folders/>
+                                    </folder>
+                                </folders>
+                            </folder>
+                        </folders>
+                    </referencedProject>
+                </referencedProjects>
+                <groups>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1453bd18a68b85cc9980748119a</groupId>
+                        <displayName>Service Information</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Definition of the service that is supported by the provider</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>pp3</parameterId>
+                                <referenceId>Id1453bd162eddecb7d533a196f76</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>WSDL for the service provider</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <editor>com.ibm.etools.mft.patterns.model.edit.POVEditorAdapterWSDL</editor>
+                                <parameterTargets>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.wsdlFileName</targetId>
+                                    </parameterTarget>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.wsdlFileName</targetId>
+                                    </parameterTarget>
+                                </parameterTargets>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the deployable WSDL file that defines the interface of the service for which the proxy is created.&lt;/p&gt;
+&lt;p&gt;The deployable WSDL file must be selected from a workspace message set.&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>custom</type>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp4</parameterId>
+                                <referenceId>Id1453bd162edaeba9b620c176039</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>URL of the service provider</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.webServiceURL</targetId>
+                                    </parameterTarget>
+                                </parameterTargets>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the endpoint at which the service that is being proxied is located.&lt;/p&gt;
+&lt;p&gt;If not specified, the endpoint is determined from the binding information in the WSDL file.&lt;/p&gt;</helpText>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp1</parameterId>
+                                <referenceId>Id1453bd162ec84cd268aec2a92f1</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>URL path suffix of proxy flow</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.urlSelector</targetId>
+                                    </parameterTarget>
+                                </parameterTargets>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This parameter defines the URL path that is used to define the endpoint for the deployed proxy.&lt;/p&gt;
+&lt;p&gt;The complete service address also includes the host name and port, which are determined when the proxy is deployed.&lt;/p&gt;
+&lt;p&gt;If no path is specified, the path from the service WSDL is used.&lt;/p&gt;</helpText>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp5</parameterId>
+                                <referenceId>Id1453bd162edcace2c0658e1634e</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Validation of SOAP request</displayName>
+                                <default>5061747465726E73216E6F6E65</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Input.validateMaster</targetId>
+                                    </parameterTarget>
+                                </parameterTargets>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>Id1453bd162ed1257f1e02f251ccd</type>
+                                </schema>
+                                <helpText>&lt;p&gt;Incoming SOAP messages are validated as defined by this parameter.&lt;/p&gt;
+&lt;p&gt;Valid values are: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;None&lt;/li&gt;
+&lt;li&gt;Content and value&lt;/li&gt;
+&lt;/ul&gt;</helpText>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp2</parameterId>
+                                <referenceId>Id1453bd162edf3eab9903971e3a8</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Validation of SOAP response</displayName>
+                                <default>5061747465726E73216E6F6E65</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets>
+                                    <parameterTarget>
+                                        <targetId>StaticEndpointProject.mqsi.Proxy.SOAP_Request.validateMaster</targetId>
+                                    </parameterTarget>
+                                </parameterTargets>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>Id1453bd162ed364cff596cfaa0b8</type>
+                                </schema>
+                                <helpText>&lt;p&gt;The SOAP responses are validated as defined by this parameter.&lt;/p&gt;
+&lt;p&gt;Valid values are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;None&lt;/li&gt;
+&lt;li&gt;Content and Value&lt;/li&gt;
+&lt;/ul&gt;</helpText>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1453bd4226684c2359593b90600</groupId>
+                        <displayName>Logging</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Enable logging messages and specify their destination</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>pp6</parameterId>
+                                <referenceId>Id1453bd488a619cd6278b417f700</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Logging Required</displayName>
+                                <default>false</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:boolean</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter determines whether the pattern instance includes the code for logging.&lt;/p&gt;
+&lt;p&gt;If Logging required is cleared, a Log subflow is not included.&lt;/p&gt;
+&lt;p&gt;If Logging required is selected, a Log subflow is included in the message flow and values must be set for Log queue manager and Log queue.&lt;/p&gt;</helpText>
+                                <master>
+                                    <slave>
+                                        <parameterId>pp7</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>pp8</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                </master>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp8</parameterId>
+                                <referenceId>Id1453c0f241a9fdb2f162cc54859</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Log queue manager</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter defines the queue manager for logging. It can be left blank if the broker queue manager is used for logging.&lt;/p&gt;
+&lt;p&gt;This parameter is required only if Logging required is selected.&lt;/p&gt; 
+</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;pp6&apos;)=&apos;true&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp7</parameterId>
+                                <referenceId>Id1453c0f241aa1ac49f6436ab676</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Log queue name</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression>pp:getValue(&apos;pp6&apos;)</expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter defines the queue for logging.&lt;/p&gt;
+&lt;p&gt;This parameter is required only if Logging required is selected.&lt;/p&gt;
+</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;pp6&apos;)=&apos;true&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                    <group documentationRequired="true" tableRequired="true">
+                        <groupId>Id1453c0f6fe6cea3e53fbc740c24</groupId>
+                        <displayName>Error handling</displayName>
+                        <generateDocumentation>true</generateDocumentation>
+                        <description>Pattern Parameters</description>
+                        <expand>false</expand>
+                        <visible>true</visible>
+                        <parameters>
+                            <parameter>
+                                <parameterId>pp11</parameterId>
+                                <referenceId>Id1453c10db542c402ca969a202ac</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Error message required</displayName>
+                                <default>false</default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:boolean</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter defines whether the pattern application creates the message flow elements that create the error messages.&lt;/p&gt;
+&lt;p&gt;If Error message required is selected, values must be set for Error queue manager and Error queue.&lt;/p&gt;</helpText>
+                                <master>
+                                    <slave>
+                                        <parameterId>pp9</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                    <slave>
+                                        <parameterId>pp10</parameterId>
+                                        <events>
+                                            <event>
+                                                <type>valueChanged</type>
+                                            </event>
+                                        </events>
+                                    </slave>
+                                </master>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp10</parameterId>
+                                <referenceId>Id1453c0f6fe62b7536fcfdcf90b2</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Error queue manager</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter defines the queue manager for error messages. It can be left blank if the broker queue manager is used for logging.&lt;/p&gt;</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;pp11&apos;)=&apos;true&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                            <parameter>
+                                <parameterId>pp9</parameterId>
+                                <referenceId>Id1453c0f6fe6a55bdc1d2f9daf8a</referenceId>
+                                <defaultTranslated>false</defaultTranslated>
+                                <displayName>Error queue name</displayName>
+                                <default></default>
+                                <waterMark>Enter your parameter value</waterMark>
+                                <mandatory>true</mandatory>
+                                <configurable>true</configurable>
+                                <visible>true</visible>
+                                <expression></expression>
+                                <parameterTargets/>
+                                <schema>
+                                    <maxOccurs>1</maxOccurs>
+                                    <minOccurs>1</minOccurs>
+                                    <type>xsd:string</type>
+                                </schema>
+                                <helpText>&lt;p&gt;This pattern parameter defines the queue for error messages.&lt;/p&gt;
+&lt;p&gt;This parameter is required only if Error message required is selected. &lt;/p&gt;
+</helpText>
+                                <actions>
+                                    <action>
+                                        <type>enablement</type>
+                                        <default>false</default>
+                                        <conditionExpression>pp:getValue(&apos;pp11&apos;)=&apos;true&apos;</conditionExpression>
+                                        <valueExpression>true()</valueExpression>
+                                    </action>
+                                </actions>
+                                <continuation>false</continuation>
+                            </parameter>
+                        </parameters>
+                    </group>
+                </groups>
+                <messages/>
+                <patternExtensions>
+                    <packageExtensions/>
+                    <generateExtensions>
+                        <generateExtension>
+                            <extensionId>Id1453c1577e36c11e0c9894a63da</extensionId>
+                            <extensionClass>com.ibm.etools.mft.pattern.support.java.JavaPatternInstanceTransform</extensionClass>
+                            <extensionConfiguration>
+                                <configuration>
+                                    <key>class</key>
+                                    <value>com.ibm.etools.mft.pattern.sv.se.code.PatternGenerator</value>
+                                </configuration>
+                                <configuration>
+                                    <key>pluginId</key>
+                                    <value>com.ibm.etools.mft.pattern.sv.se.code</value>
+                                </configuration>
+                                <configuration>
+                                    <key>relativePath</key>
+                                    <value></value>
+                                </configuration>
+                                <configuration>
+                                    <key>projectName</key>
+                                    <value></value>
+                                </configuration>
+                                <configuration>
+                                    <key>outputPath</key>
+                                    <value></value>
+                                </configuration>
+                            </extensionConfiguration>
+                        </generateExtension>
+                    </generateExtensions>
+                </patternExtensions>
+                <patternLists>
+                    <patternList>
+                        <listId>Id1453bd162ed364cff596cfaa0b8</listId>
+                        <displayName>Validate master</displayName>
+                        <systemList>false</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed44b69880e8e6ad1d</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162edf3e386dc5a9d5bc0</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed4b5fcb1c72a34872</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed61e30c9d00032e64</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162edfc840d78f95af5c</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                        </systemListItems>
+                    </patternList>
+                    <patternList>
+                        <listId>Id1453bd162ed1257f1e02f251ccd</listId>
+                        <displayName>Validate master_1</displayName>
+                        <systemList>false</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed6c5145d116440c8</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed497eab8bb6550324</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed3d2999c46f566591</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed1893de9e6f054e5d</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162edda8462931c184f9a</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id1453bd162ed88ca3c595f7479e4</listItemId>
+                                <displayName>Inherit</displayName>
+                                <value>5061747465726E7321696E6865726974</value>
+                            </patternListItem>
+                        </systemListItems>
+                    </patternList>
+                    <patternList>
+                        <listId>Id147c47a76394efee103f4e8f923</listId>
+                        <displayName>StaticEndpointProject.mqsi.Proxy.SOAP_Input.validateMaster</displayName>
+                        <systemList>true</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id147c47a763913f8866494efc5df</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7639120eae58b09a1ac1</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7639d13413e8f7490aa8</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems>
+                            <patternListItem>
+                                <listItemId>Id147c47a76395677645e7ed514f4</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7639e04373474358e022</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7639b568078fd91c6a71</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                        </systemListItems>
+                    </patternList>
+                    <patternList>
+                        <listId>Id147c47a766479689dea3160926</listId>
+                        <displayName>StaticEndpointProject.mqsi.Proxy.SOAP_Request.validateMaster</displayName>
+                        <systemList>true</systemList>
+                        <patternListItems>
+                            <patternListItem>
+                                <listItemId>Id147c47a766458be5182b7f11d6c</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a766468c7ec3ee7c173e6</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7664cca2476239179008</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a76647aa881be568319e4</listItemId>
+                                <displayName>Inherit</displayName>
+                                <value>5061747465726E7321696E6865726974</value>
+                            </patternListItem>
+                        </patternListItems>
+                        <systemListItems>
+                            <patternListItem>
+                                <listItemId>Id147c47a7664db5a29e3c724450d</listItemId>
+                                <displayName>None</displayName>
+                                <value>5061747465726E73216E6F6E65</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7664ab4b5f1f08593873</listItemId>
+                                <displayName>Content and value</displayName>
+                                <value>5061747465726E7321636F6E74656E74416E6456616C7565</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a766443bb3b6270ddff0</listItemId>
+                                <displayName>Content</displayName>
+                                <value>5061747465726E7321636F6E74656E74</value>
+                            </patternListItem>
+                            <patternListItem>
+                                <listItemId>Id147c47a7664508dbaccb7d96500</listItemId>
+                                <displayName>Inherit</displayName>
+                                <value>5061747465726E7321696E6865726974</value>
+                            </patternListItem>
+                        </systemListItems>
+                    </patternList>
+                </patternLists>
+                <specification>
+                    <projectName>ServiceProxyStaticEndpoint</projectName>
+                    <relativePath>Pattern Specification</relativePath>
+                    <folders>
+                        <folder>
+                            <folderName>root</folderName>
+                            <relativePath></relativePath>
+                            <enabled>true</enabled>
+                            <files>
+                                <file>
+                                    <fileName>OrderService.wsdl</fileName>
+                                    <relativePath>OrderService.wsdl</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>after.htm</fileName>
+                                    <relativePath>after.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>before.htm</fileName>
+                                    <relativePath>before.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>constraints.htm</fileName>
+                                    <relativePath>constraints.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>errorflow.htm</fileName>
+                                    <relativePath>errorflow.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>logflow.htm</fileName>
+                                    <relativePath>logflow.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>overview.htm</fileName>
+                                    <relativePath>overview.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>parameters.htm</fileName>
+                                    <relativePath>parameters.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>proxy.htm</fileName>
+                                    <relativePath>proxy.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>resources.htm</fileName>
+                                    <relativePath>resources.htm</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>simpleserviceproxy.cdr</fileName>
+                                    <relativePath>simpleserviceproxy.cdr</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                                <file>
+                                    <fileName>simpleserviceproxy.gif</fileName>
+                                    <relativePath>simpleserviceproxy.gif</relativePath>
+                                    <enabled>true</enabled>
+                                    <targets/>
+                                </file>
+                            </files>
+                            <folders/>
+                        </folder>
+                    </folders>
+                </specification>
+                <patternTables/>
+            </pattern>
+        </patterns>
+        <buildOptions>
+            <createTranslationPlugins>false</createTranslationPlugins>
+        </buildOptions>
+    </plugin>
+</capture:plugins>

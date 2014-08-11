@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Tasks to complete after generating the Service Proxy: static endpoint pattern."/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Tasks to complete after generating the Service Proxy: static endpoint pattern</title>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.after">
+	<h1 class="topictitle1">Tasks to complete after generating the <span>Service Proxy: static endpoint</span> 
+	pattern</h1>
+	<p class="shortdesc">Tasks that you must complete after you have generated the pattern.</p>
+<ol>
+<li>Create the broker archive (BAR) file. 
+Add the generated message flow to your BAR file. In the Broker Archive editor, you must select the 
+<span class="uicontrol">Compile and in-line resources</span> option before you build the BAR file.	
+</li>
+<li>Configure the broker archive file. Further configuration of the message flow in the broker archive file 
+is not required
+before you deploy the message flows for your <span>Service Proxy: static endpoint</span> pattern instance, 
+but you might want to review some of the default options and configure changes for your environment.
+<p>In the <span class="uicontrol">Manage</span> page of the <span class="uicontrol">Broker Archive</span> 
+editor:</p>
+<ul>
+	<li>Optional: Use the 
+	<span class="msobjprop">RequestLoggingOn</span> user-defined property to
+		select whether logging requests are on or off for the message flow.</li>
+	<li>Optional: Use the 
+	<span class="msobjprop">ResponseLoggingOn</span> user-defined property to
+		select whether logging replies are on or off for the message flow.</li>
+	<li>Optional: Use the <span class="msobjprop">ErrorLoggingOn</span> 
+	user-defined property to select whether
+		error messages are generated.</li>
+	<li>Optional: You can also change any of the configurable properties
+		in the broker archive, for example, properties for security or creating
+		additional instances. You must ensure that any values that you
+		change do not impact the behavior of the pattern instance.</li>
+	<li>If the transport defined in the WSDL file is HTTPS, 
+	additional SSL configuration is required, 
+		see &quot;Implementing SSL Authentication&quot; in the IBM Integration documentation.</li>
+</ul></li>
+<li>Create queues. When you apply the pattern, a list of WebSphere MQ queues is generated with
+queue names and queue manager names, these WebSphere MQ queues must be created if they do
+not already exist. All the message settings that are required by the pattern are
+set explicitly on the messages and are not dependent on queue settings.</li>
+<li>In the summary file, view the list of queues that you must create. The summary file 
+ 		is located in the Pattern Configuration folder of the 
+ 		<i>InstanceName</i> pattern instance project.</li>
+<li>Create <span>WebSphere MQ</span> resources. You can create <span>WebSphere MQ</span> resources 
+either on the command line, by using programs and utilities such as <span class="cmdname">runmqsc</span>, 
+or by using the <span>WebSphere MQ</span> Explorer graphical interface. 
+For more information about creating 
+<span>WebSphere MQ</span> resources, see <span>WebSphere MQ</span> Intercommunication,
+available on the
+<img src="../../../images/external_link.gif" alt="This link opens in a new window" class="external_link" /> 
+<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ
+library web page</a>.</li>
+<li>Deploy the BAR file. The message set containing the deployable WSDL must be deployed 
+by using the same, or another, BAR file.
+<p>The address of the proxy service is determined after deployment and is published to requesters. 
+This information can be obtained by using the <span class="cmdname">mqsireportproperties</span> 
+command to determine the HTTPCOnnector 
+properties for the execution group.</p></li>
+</ol>
+	<p>
+		<a href="overview.htm#anchorBack" title="Back">Back to the Service Proxy: static endpoint pattern specification</a>
+	</p>
+</body>
+</html>

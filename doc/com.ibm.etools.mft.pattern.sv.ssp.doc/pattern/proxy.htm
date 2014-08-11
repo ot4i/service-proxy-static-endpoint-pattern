@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Use the Service Proxy: static endpoint pattern to provide loose coupling between service requesters and service providers."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<title>Proxy flow for the Service Proxy: static endpoint pattern</title>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1">Proxy flow for the <span>Service Proxy: static endpoint</span> pattern</h1>
+	<p class="shortdesc">
+	Details about the proxy flow for the <span>Service Proxy: static endpoint</span> pattern.</p>
+</div>
+
+<p>The SimpleServiceProxy flow processes all service requests in the following way:</p>
+<ol>
+<li>When a request is received by the message flow the request is validated, 
+if validation is required by the pattern instance 
+configuration.</li>
+<li>The message flow sets the parameters that are required to forward the service 
+request to the target service provider by using the provider URL that 
+is supplied in a pattern parameter or configured in the broker archive (BAR) file.</li>
+
+<li>The SOAP request is then sent to the service provider. 
+If a successful response is received, this response
+is returned directly to the initiating service requester. 
+If a fault message is received, the flow status is 
+set to indicate that a fault has occurred and the fault message is returned to the service requester.</li>
+<li>You can configure the pattern to include or exclude the logging of requests and replies. 
+ </li>
+<li>If logging is not included, the message flow ends successfully when the reply is returned.</li>
+<li>The message flow also contains a subflow for error handling. 
+</li>
+<li>Error messages are written to the error queue if you have configured 
+this option for your pattern instance.</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="Back">Back to the Service Proxy: static endpoint pattern specification</a>
+</p>
+</body>
+</html>
