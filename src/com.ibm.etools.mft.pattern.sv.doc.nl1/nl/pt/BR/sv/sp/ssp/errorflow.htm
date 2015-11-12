@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Use o padrão de Service Proxy: terminal estático para fornecer loose coupling entre solicitantes de serviços e provedores de serviços."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Subfluxo de Erro para o Padrão de Service Proxy: Terminal Estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Subfluxo de Erro para o Padrão de <span>Service Proxy: Terminal Estático</span></h1>
+</div>
+<p class="shortdesc">Se um erro for capturado durante o processamento do fluxo de mensagens, o subfluxo de Erro será chamado
+e uma resposta de erro será retornada ao cliente indicando que o pedido não foi concluído com êxito.</p> 
+<p>Se você tiver configurado a instância padrão para ativar mensagens de erro, uma mensagem será gravada na fila de
+erros. As ações a seguir são executadas pelo subfluxo de Erro:</p>
+<ol>
+<li>O subfluxo de Erro constrói uma mensagem de falha SOAP que é retornada ao solicitante de serviços indicando
+que o pedido não foi bem-sucedido. A falha de SOAP inclui os detalhes da exceção que causou
+a falha do fluxo de mensagens.</li>
+<li>Se você tiver configurado os parâmetros padrão para incluir mensagens de erro e a propriedade definida pelo usuário:
+<span class="msobjprop">ErrorLoggingOn</span> será selecionado, uma mensagem de erro será preparada e gravada na
+fila de erros.
+<p>Detalhes da exceção são gravadas como uma mensagem XML. Estes detalhes incluem:</p>
+	<ul>
+	<li>Nome do broker</li>
+	<li>Nome do fluxo</li>
+	<li>Registro de data e hora</li>
+	<li>Código de Status:
+		<ul>
+		<li>1 (quando o pedido foi encaminhado)</li>
+		<li>2 (se o provedor respondeu)</li>
+		<li>-2 (se o provedor retorna uma falha)</li>
+		</ul></li>
+	<li>Nome do serviço</li>
+	<li>Espaço de nomes de serviço</li>
+	<li>Porta</li>
+	<li>Tipo de porta</li>
+	<li>Operação</li>
+	<li>Ponto de extremidade de destino</li>
+	<li>Resumo dos dados da exceção</li>
+	</ul>
+	<p>O resumo dos dados de exceção contém o rótulo do fluxo de mensagens, o número do erro, a descrição do texto
+	e uma lista de inserções fornecendo os detalhes adicionais.</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="Voltar">Voltar ao padrão de Service Proxy: terminal estático</a>
+</body>
+</html>

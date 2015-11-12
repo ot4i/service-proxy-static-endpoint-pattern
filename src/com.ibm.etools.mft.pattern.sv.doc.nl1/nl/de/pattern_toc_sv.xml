@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sv" label="Service-Proxy" topic="sv/sp/overview.htm">
+    <topic label="Service-Proxy" href="sv/sp/overview.htm">
+      	<topic label="Statischer Endpunkt" href="sv/sp/ssp/overview.htm">
+      		<topic label="Proxy-Nachrichtenfluss" href="sv/sp/ssp/proxy.htm"/>
+      		<topic label="Untergeordneter Fehlernachrichtenfluss" href="sv/sp/ssp/errorflow.htm"/>
+      		<topic label="Untergeordneter Protokollnachrichtenfluss" href="sv/sp/ssp/logflow.htm"/>
+      		<topic label="Vorgaben" href="sv/sp/ssp/constraints.htm"/>
+      		<topic label="Erforderliche Tasks vor der Anwendung des Musters" href="sv/sp/ssp/before.htm"/>
+      		<topic label="Ressourcen für die Aufnahme der Musternutzung" href="sv/sp/ssp/resources.htm"/>
+      		<topic label="Parameters" href="sv/sp/ssp/parameters.htm"/>
+      		<topic label="Erforderliche Tasks nach der Generierung des Musters" href="sv/sp/ssp/after.htm"/>
+      	</topic>
+    </topic>
+</toc>

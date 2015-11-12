@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="Details zum notwendigen Know-how und den erforderlichen Ressourcen für die Verwendung des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Vorgaben für die Verwendung des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.constraints">
+	<h1 class="topictitle1">Vorgaben für die Verwendung des Musters <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</h1>
+	<div>
+		<p class="shortdesc">Wenn Sie dieses Muster verwenden, gelten eine Reihe von Vorgaben.</p>
+	</div>
+		<p>Das Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt) kann nur verwendet werden, wenn
+		die folgenden Bedingungen erfüllt sind:</p>
+<ul>
+	<li>Die Anforderungen müssen als SOAP-Nachrichten über HTTP oder HTTPS eingehen.</li>
+	<li>Die anfordernden Anwendungen müssen einen Interaktionsstil mit synchronen
+	Anforderungen und Antworten unterstützen.</li>
+	<li>Der Zielservice muss die Bindung SOAP über HTTP oder HTTPS bereitstellen.</li>
+	<li>Die WSDLs mit der Definition der Zielserviceschnittstelle können mehrere
+	Porttypen und Bindungen enthalten; zur Konfiguration der generierten Musterinstanz
+	wird aber nur der erste Porttyp bzw. die erste Bindung verwendet. 
+	Alternativen können im Nachrichtenflusseditor ausgewählt werden.</li>
+	<li>Wenn eine Protokollierung erforderlich ist, wird davon ausgegangen, dass das
+	von diesem Muster verwendete Format den Anforderungen Ihres Unternehmens entspricht.</li>
+	
+</ul>
+	<p>
+	<a href="overview.htm#anchorBack" title="Zurück">Zurück zur Spezifikation des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</a>
+	</p>
+</body>
+</html>

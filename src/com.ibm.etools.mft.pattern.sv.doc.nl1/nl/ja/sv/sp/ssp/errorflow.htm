@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを使用して、サービス要求元とサービス・プロバイダーとの疎結合を提供します。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンのエラー・サブフロー</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンのエラー・サブフロー</h1>
+</div>
+<p class="shortdesc">メッセージ・フローの処理中にエラーがキャッチされた場合、エラー・サブフローが呼び出され、要求が正常に完了しなかったことを示すエラー応答がクライアントに返されます。
+</p> 
+<p>エラー・メッセージを有効にするようにパターン・インスタンスを構成した場合、メッセージがエラー・キューに書き込まれます。
+エラー・サブフローは以下のアクションを実行します。</p>
+<ol>
+<li>エラー・サブフローは、サービス要求元に返される SOAP 障害メッセージを作成します。これは、要求が成功しなかったことを示します。、
+SOAP 障害には、メッセージ・フローが失敗する原因となった例外の詳細が含まれます。
+</li>
+<li>エラー・メッセージを含めるようにパターン・パラメーターを構成し、ユーザー定義プロパティー <span class="msobjprop">ErrorLoggingOn</span> を選択している場合には、エラー・メッセージが作成されてエラー・キューに書き込まれます。<p>例外の詳細は XML メッセージとして書き込まれます。これらの詳細には、以下の内容が含まれます。</p>
+	<ul>
+	<li>ブローカー名</li>
+	<li>フロー名</li>
+	<li>タイム・スタンプ</li>
+	<li>状況コード:<ul>
+		<li>1 (要求が転送された場合)</li>
+		<li>2 (プロバイダーが応答した場合)</li>
+		<li>-2 (プロバイダーが障害を返す場合)</li>
+		</ul></li>
+	<li>サービス名</li>
+	<li>サービス名前空間</li>
+	<li>ポート</li>
+	<li>ポート・タイプ</li>
+	<li>操作</li>
+	<li>ターゲット・エンドポイント</li>
+	<li>例外データの要約</li>
+	</ul>
+	<p>例外データの要約には、メッセージ・フロー・ラベル、エラー番号、テキスト記述、および詳細情報挿入リストが含まれます。</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンに戻る</a>
+</body>
+</html>

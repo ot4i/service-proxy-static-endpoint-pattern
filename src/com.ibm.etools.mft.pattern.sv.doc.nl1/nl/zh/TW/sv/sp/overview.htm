@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="您可以使用 Service Proxy 型樣，引進服務的額外間接層次，以提供服務要求者與服務提供者之間的取消聯結上限。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Service Proxy 型樣</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1"><span>Service Proxy</span> 型樣</h1>
+<div>
+<p class="shortdesc">使用此型樣，可以引進服務的額外間接層次，來提供服務要求者與服務提供者之間的取消聯結上限。</p>
+<p>Service Proxy 型樣的最基本形式會隱藏服務實作的實際位置。
+此型樣也是特定值，提供用於存取控制、要求追蹤及審核的管理點。</p>
+<div class="image"><img src="./serviceproxy.gif" alt="服務 Proxy 架構圖"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">環境定義</a></h2>
+<p>用戶端必須在服務上呼叫作業。用戶端不得直接存取服務，因為服務所在端點的位址可能會變更，或實際端點位址可能會變更。實際端點位址會加以隱藏，以便控制服務的存取。</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">問題</a></h2>
+<p>如何讓用戶端在控制的情況下使用服務，而不需要公開服務所在端點的實際位置。</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">選擇指引</a></h2>
+<p>使用此型樣的時機如下：</p>
+<ul>
+	<li>必須透過控制點存取服務，而不需向用戶端公開服務的實際位置（端點位址）。</li>
+	<li>每次啟動此服務時，都必須套用某種形式的控制（存取管理、授權、審核或記載）。</li>
+</ul>
+<p>在組織或部門界限以外公開服務時，必須考慮問題（例如安全、審核追蹤維護、可靠性、服務品質及通訊相容性）。</p>
+<p>最好是保留服務部署的彈性。例如，可以將服務移至不同伺服器，而不影響該服務的任何用戶端，方法是讓它看起來像未變更服務端點的位址。</p>
+<p>服務所支援的通訊協定連結可能不適用於特定一組用戶端。其中一個解決方案是修改服務，讓它支援必要的通訊協定，但在許多情況下，並不需要或不可能進行此解決方案。</p>
+<p>您可能會想要隱藏服務的實際位置，讓所有用戶端都必須透過特定的控制點來間接進行存取。隱藏服務的實際位置，可以新增審核功能或其他用戶端鑑別檢查。</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">解決方案</a></h2>
+
+<p>透過部署可實作相同介面的企業服務匯流排 (ESB) 調解，以隱藏目標服務。
+此調解是作為虛擬服務或 Proxy，以將所有要求重新導向至實際服務提供者。用戶端只會看到虛擬服務，而虛擬服務看起來就像服務的實際提供者。</p>
+
+<p>在部分情況下，虛擬服務所支援的一組通訊協定連結可能會與實際服務所支援的通訊協定連結不同，因此提供必要的通訊協定轉換作為調解的一部分。</p>
+<p>
+
+調解的最基本形式會將每一個要求重新導向至預先配置的端點位址。
+較具彈性的方式是查詢服務登錄來判斷實際位址，來快取此值以與後續要求搭配使用。</p>
+
+<p>虛擬服務或調解會實作一些其他特性。在一般實作中，調解會基於審核目的記載每一個要求。虛擬服務也可能會提供其他層次的存取控制，以檢查與每一個送入要求相關聯的認證。
+較複雜的實作也可能會提供不同安全網域之間的身分對映。</p>
+
+
+</div>
+</body>
+</html>

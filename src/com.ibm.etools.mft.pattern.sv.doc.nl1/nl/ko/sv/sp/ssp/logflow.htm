@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="서비스 프록시: 정적 엔드포인트 패턴을 사용하면 서비스 요청자와 서비스 제공자 간에 느슨한 결합을 제공할 수 있습니다."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>서비스 프록시: 정적 엔드포인트 패턴의 로그 서브플로우</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1"><span>서비스 프록시: 정적 엔드포인트</span> 패턴의 로그 서브플로우</h1>
+	<p class="shortdesc">
+로그 기록이 사용되면, 로그 서브플로우가 사용자 정의 특성
+<span class="msobjprop">RequestLoggingOn</span> 및 <span class="msobjprop">ResponseLoggingOn</span>에 따라
+요청과 응답을 기록합니다.
+</p>
+	<p>
+	로그 메시지가 WebSphere MQ 큐에 지속 WebSphere MQ 메시지로 기록됩니다.
+	이 로그 메시지는 조직의 표준 관행에 따라 따로
+처리됩니다.
+메시지 로그의 MQRFH2 헤더에 원본 메시지와 다음과 같은 정보가 있습니다.
+	</p>
+	<ul>
+		<li>
+			시간소인
+		</li>
+		<li>
+			브로커 이름
+		</li>
+		<li>
+			메시지 플로우 이름
+		</li>
+		<li>
+			서비스 세부사항
+		</li>
+		<li>
+			상태(1 = 요청, 2 = 응답, -2 = 결함)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="이전">서비스 프록시: 정적 엔드포인트 패턴 스펙으로 돌아가기</a>
+</body>
+</html>

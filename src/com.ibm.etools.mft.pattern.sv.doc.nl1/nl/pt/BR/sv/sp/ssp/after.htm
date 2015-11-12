@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Tarefas para Concluir Após Gerar o Padrão de Service Proxy: Terminal Estático."/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Tarefas para Concluir Após Gerar o Padrão de Service Proxy: Terminal Estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.after">
+	<h1 class="topictitle1">Tarefas para Concluir Após Gerar o Padrão de <span>Service Proxy: Terminal Estático</span></h1>
+	<p class="shortdesc">As tarefas que você deve concluir após ter gerado o padrão.</p>
+<ol>
+<li>Crie o arquivo broker archive (BAR). 
+Inclua o fluxo de mensagens gerado em seu arquivo BAR. No editor do Broker Archive, você deve selecionar
+a opção <span class="uicontrol">Compilar e Sequenciar Recursos</span> antes de construir o arquivo BAR.	
+</li>
+<li>Configure o arquivo broker archive. A configuração adicional do fluxo de mensagens no arquivo bar
+não é necessária
+antes de implementar os fluxos de mensagens para sua instância padrão de <span>Service Proxy: Terminal Estático</span>,
+mas talvez você deseje revisar algumas das opções padrão e configurar alterações para seu ambiente.
+<p>Na página <span class="uicontrol">Gerenciar</span> do editor de <span class="uicontrol">Broker Archive</span>:</p>
+<ul>
+	<li>Opcional: Use a propriedade definida pelo usuário
+	<span class="msobjprop">RequestLoggingOn</span> para
+		selecionar se os pedidos de criação de log estão ativados ou desativados para o fluxo de mensagens.</li>
+	<li>Opcional: Use a propriedade definida pelo usuário
+	<span class="msobjprop">ResponseLoggingOn</span> para
+		selecionar se as respostas de criação de log estão ativadas ou desativadas para o fluxo de mensagens.</li>
+	<li>Opcional: Use a propriedade definida pelo usuário <span class="msobjprop">ErrorLoggingOn</span> para
+	  		selecionar se as mensagens de erro são geradas.</li>
+	<li>Opcional: Também é possível alterar qualquer uma das propriedades configuráveis
+		no broker archive, por exemplo, propriedades para segurança ou criar
+		instâncias adicionais. É necessário assegurar que
+	  		quaisquer valores que você alterar não causem impacto no comportamento da instância padrão.</li>
+	<li>Se o transporte definido no arquivo WSDL for HTTPS, a configuração de SSL adicional
+	será necessária. Consulte &quot;Implementando a Autenticação SSL&quot; na documentação do
+	IBM Integration.</li>
+</ul></li>
+<li>Crie filas. Quando aplicar o padrão, uma lista de filas do WebSphere MQ será
+		gerada com nomes de filas e nomes de gerenciador de filas, estas filas do WebSphere MQ deverão ser criadas se
+		ainda não existirem. Todas as configurações de mensagem que são necessárias por padrão são
+configuradas explicitamente nas mensagens e não são dependentes das configurações de filas.</li>
+<li>No arquivo de resumo, visualize a lista de filas que você deve criar. O arquivo de resumo
+ 				está localizado na pasta Configuração de Padrão do
+ 				projeto de instância padrão <i>InstanceName</i>.</li>
+<li>Crie recursos do <span>WebSphere MQ</span>. É possível criar recursos do <span>WebSphere MQ</span>
+		 na linha de comandos,
+		usando programas e utilitários como
+		<span class="cmdname">runmqsc</span>, ou usando a
+		interface gráfica do <span>WebSphere MQ</span> Explorer. 
+Para obter informações adicionais sobre a criação de
+recursos do <span>WebSphere MQ</span>, consulte <span>WebSphere MQ</span> Intercommunication,
+disponível na página da Web da
+<img src="../../../images/external_link.gif" alt="Esse link é aberto em uma nova janela" class="external_link" />
+<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">biblioteca do
+WebSphere MQ</a>.</li>
+<li>Implemente o arquivo BAR. O conjunto de mensagens contendo o WSDL implementável deve ser implementado
+usando o mesmo arquivo BAR ou outro.
+<p>O endereço do serviço de proxy é determinado após a implementação e é publicado para os solicitantes. 
+Estas informações podem ser obtidas usando o comando <span class="cmdname">mqsireportproperties</span>
+para determinar as propriedades HTTPCOnnector
+para o grupo de execução.</p></li>
+</ol>
+	<p>
+		<a href="overview.htm#anchorBack" title="Voltar">Voltar para a especificação de padrão Service Proxy: Terminal Estático</a>
+	</p>
+</body>
+</html>

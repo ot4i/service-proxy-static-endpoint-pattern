@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 型樣，可以提供服務要求者與服務提供者之間的鬆散聯結。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 型樣的 Proxy 流程</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 型樣的 Proxy 流程</h1>
+	<p class="shortdesc">
+	<span>Service Proxy: static endpoint</span> 型樣的 Proxy 流程明細。</p>
+</div>
+
+<p>SimpleServiceProxy 流程使用下列方法來處理所有服務要求：</p>
+<ol>
+<li>訊息流程接收到要求時，會驗證要求（如果型樣實例配置需要驗證）。</li>
+<li>訊息流程設定必要的參數，透過型樣參數中所提供的提供者 URL 或分配管理系統保存檔 (BAR) 中配置的提供者 URL，以將服務要求轉遞給目標服務提供者。</li>
+
+<li>然後，會將 SOAP 要求傳送至服務提供者。如果接收到順利完成的回應，則會將此回應直接傳回給起始端服務要求者。
+如果接收到錯誤訊息，則會設定流程狀態以指出發生錯誤，並將錯誤訊息傳回至服務要求者。</li>
+<li>您可以配置型樣以包括或排除要求及回覆的記載。</li>
+<li>如果不包括記載，則訊息流程會在傳回回覆時順利結束。</li>
+<li>訊息流程也包含錯誤處理的子流程。</li>
+<li>如果您已針對型樣實例配置此選項，則會將錯誤訊息寫入錯誤佇列。</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Proxy: static endpoint 型樣規格</a></p>
+</body>
+</html>

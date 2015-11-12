@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Visão Geral do Padrão de Service Proxy: Terminal Estático"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Padrão de Service Proxy: Terminal Estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1">Padrão de <span>Service Proxy: Terminal Estático</span></h1>
+
+<div>
+<p class="shortdesc">Use esse padrão para fornecer desacoplamento entre solicitantes de
+serviços da Web e provedores de serviços da Web, roteando através de um serviço virtual
+que está ligado diretamente ao provedor de serviços de destino.</p>
+<p> Use este padrão:</p>
+<ul>
+<li>Quando não desejar
+que o cliente acesse o serviço diretamente, porque o endereço
+do terminal no qual o serviço está localizado pode mudar ou porque ele deve ser ocultado
+para controlar o acesso ao serviço</li>
+<li>Para suportar o acesso ao serviço sobre HTTP ou HTTPS</li>
+<li>Quando desejar fornecer criação de log de todos os pedidos
+ao provedor de serviços ou quando desejar fornecer recursos de
+manipulação de erros adicionais sem fazer alterações no provedor de serviços</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">Solução</h2>
+</div>
+	<p>
+	A solução é implementar um fluxo de mensagens que forneça um proxy para o serviço da Web
+ do provedor e também possa incluir recursos de criação de log e manipulação de erros.</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="Um diagrama mostrando o comportamento do padrão. Pedidos de serviço são encaminhados ao provedor de serviços final." />
+</div>
+	<div>
+		<a href="proxy.htm" title="Informações de Design sobre o Fluxo de Mensagens de Proxy.">Fluxo de Proxy</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informações de Design sobre o Subfluxo de Erro.">Subfluxo de Erro</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informações de Design sobre o Subfluxo de Log.">Subfluxo de Log</a>
+	</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">Tarefas Relacionadas</h2>
+		</div>
+		<p>
+			Leia a seção a seguir para obter informações sobre como aplicar e usar este padrão.
+		</p>
+		<a href="constraints.htm" title="Restrições no Uso do Padrão">
+			Restrições no uso do padrão</a>
+	</div>
+	<div>
+		<a href="before.htm" title="Tarefas para Concluir Antes de Aplicar o Padrão">
+			Tarefas para concluir antes de aplicar o padrão</a>
+	</div>
+	<div>
+		<a href="resources.htm" title="Recursos para Introduzí-lo no Padrão">
+			Recursos para introduzí-lo no padrão</a>
+	</div>
+	<div>
+		<a href="parameters.htm" title="Parâmetros para o Padrão">
+			Parâmetros para o padrão</a>
+	</div>
+	<div>
+		<a href="after.htm" title="Tarefas para Concluir Após Gerar o Padrão">
+			Tarefas para concluir após gerar o padrão</a>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Service Proxy: static endpoint 模式的概述"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Service Proxy: static endpoint 模式</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 模式</h1>
+
+<div>
+<p class="shortdesc">使用此模式通过直接绑定至目标服务提供者的虚拟服务进行路由，从而在 Web Service 请求者和 Web Service 提供者之间提供解耦。</p>
+<p> 在以下情况下使用此模式：</p>
+<ul>
+<li>在不希望客户机直接访问服务时，这是因为服务所在端点的地址可能会发生更改，或者因为其必须隐藏以控制对服务的访问</li>
+<li>要支持通过 HTTP 或 HTTPS 访问服务</li>
+<li>在您希望为服务提供者提供所有请求记录时，或者希望提供其他错误处理功能而不对服务提供者进行更改时</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">解决方案</h2>
+</div>
+	<p>
+	解决方案将实现一个消息流，该流为提供者 Web Service 提供代理，并且还包含记录和错误处理功能。</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="此图显示此模式的行为。服务请求会转发给最终服务提供者。" />
+</div>
+	<div>
+		<a href="proxy.htm" title="有关代理消息流的设计信息。">代理流</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="有关错误子流的设计信息。">错误子流</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="有关日志子流的设计信息。">日志子流</a>
+	</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">相关任务</h2>
+		</div>
+		<p>
+			请阅读以下部分以获取有关如何应用和使用此模式的信息。</p>
+		<a href="constraints.htm" title="使用此模式时的约束">使用此模式时的约束</a>
+	</div>
+	<div>
+		<a href="before.htm" title="应用模式之前要完成的任务">应用模式之前要完成的任务</a>
+	</div>
+	<div>
+		<a href="resources.htm" title="帮助您开始使用模式的资源">帮助您开始使用模式的资源</a>
+		</div>
+	<div>
+		<a href="parameters.htm" title="模式参数">模式参数</a>
+	</div>
+	<div>
+		<a href="after.htm" title="生成模式之后要完成的任务">生成模式之后要完成的任务</a>
+	</div>
+</div>
+</body>
+</html>

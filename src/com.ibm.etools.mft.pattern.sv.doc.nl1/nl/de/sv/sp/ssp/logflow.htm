@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Verwenden Sie das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt), um eine lose Kopplung zwischen Servicerequestern und Serviceprovidern bereitzustellen."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Untergeordneter Protokollnachrichtenfluss für das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">Untergeordneter Protokollnachrichtenfluss für das Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</h1>
+	<p class="shortdesc">
+	Wenn die Protokollierung aktiviert ist, zeichnet der untergeordnete
+	Protokollnachrichtenfluss Anforderungen und Antworten gemäß der
+	benutzerdefinierten Eigenschaften <span class="msobjprop">RequestLoggingOn</span>
+	und <span class="msobjprop">ResponseLoggingOn</span> auf. 
+	</p>
+	<p>
+	Protokollnachrichten werden als persistente WebSphere MQ-Nachrichten in eine
+	WebSphere MQ-Warteschlange geschrieben. 
+	Diese Protokollnachrichten werden unabhängig voneinander gemäß der in Ihrem Unternehmen
+	implementierten Standardverfahren verarbeitet. 
+	Das Nachrichtenprotokoll enthält die ursprüngliche Nachricht sowie die folgenden
+	Informationen in einem MQRFH2-Header:
+	</p>
+	<ul>
+		<li>
+			Zeitmarke
+		</li>
+		<li>
+			Brokername
+		</li>
+		<li>
+			Nachrichtenflussname
+		</li>
+		<li>
+			Servicedetails
+		</li>
+		<li>
+			Status (1 = Anforderung, 2 = Antwort, -2 = Fehler)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</a>
+</body>
+</html>

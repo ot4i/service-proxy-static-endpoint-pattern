@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Verwenden Sie das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt), um eine lose Kopplung zwischen Servicerequestern und Serviceprovidern bereitzustellen."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Proxy-Nachrichtenfluss für das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1">Proxy-Nachrichtenfluss für das Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</h1>
+	<p class="shortdesc">
+	Details zum Proxy-Nachrichtenfluss für das Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</p>
+</div>
+
+<p>Der Proxy-Nachrichtenfluss 'SimpleServiceProxy' verarbeitet alle Serviceanforderungen auf die folgende Weise:</p>
+<ol>
+<li>Wenn eine Anforderung beim Nachrichtenfluss eingeht, wird die Anforderung validiert, sofern die Konfiguration der Musterinstanz eine Validierung vorschreibt.</li>
+<li>Der Nachrichtenfluss legt mittels der durch einen Musterparameter bereitgestellten bzw. in der Brokerarchivdatei konfigurierten Provider-URL die Parameter fest, die zur Weiterleitung der Serviceanforderung an den Zielserviceprovider erforderlich sind.</li>
+
+<li>Danach wird die SOAP-Anforderung an den Serviceprovider gesendet. 
+Bei Erhalt einer erfolgreichen Antwort wird diese Antwort direkt an den Servicerequester zurückgegeben. 
+Bei Erhalt einer Fehlernachricht wird der Status des Nachrichtenflusses entsprechend auf 'Fehler' gesetzt und die Fehlernachricht wird an den Servicerequester zurückgegeben.</li>
+<li>In der Konfiguration des Musters können Sie festlegen, ob die Protokollierung von Anforderungen und Antworten ein- oder ausgeschlossen sein soll. 
+ </li>
+<li>Wenn die Protokollierung ausgeschlossen ist, wird der Nachrichtenfluss nach der Rückgabe der Antwort erfolgreich beendet.</li>
+<li>Der Nachrichtenfluss enthält auch einen untergeordneten Nachrichtenfluss für die Fehlerbehandlung. 
+</li>
+<li>Fehlernachrichten werden in die Fehlerwarteschlange geschrieben, sofern diese Option in der Musterinstanz konfiguriert ist.</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</a>
+</p>
+</body>
+</html>

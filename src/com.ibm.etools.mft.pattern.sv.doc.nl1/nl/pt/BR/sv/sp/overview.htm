@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="É possível usar o padrão de Service Proxy para fornecer desacoplamento máximo entre solicitantes de serviço e provedores de serviços introduzindo um nível adicional de vias indiretas para o serviço."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Padrão de Service Proxy</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1">Padrão de <span>Service Proxy</span></h1>
+<div>
+<p class="shortdesc">Use este padrão para fornecer desacoplamento máximo entre solicitantes de serviços e
+provedores de serviços introduzindo um nível adicional de vias indiretas para o serviço.</p>
+<p>Em sua forma mais básica, o padrão de Service Proxy oculta o local verdadeiro de uma implementação de serviço. 
+O padrão também é de valor específico no fornecimento de um ponto de gerenciamento para controle de acesso,
+rastreamento de pedido e auditoria.</p>
+<div class="image"><img src="./serviceproxy.gif" alt="Diagrama da arquitetura de proxy de serviço"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">O Contexto</a></h2>
+<p>O cliente deve chamar uma operação em um serviço. O cliente não deve acessar o serviço diretamente,
+porque o endereço do terminal no qual o serviço está localizado pode alterar ou o endereço do terminal
+real pode alterar. O endereço de terminal real é ocultado para que o acesso ao serviço
+possa ser controlado.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">O Problema</a></h2>
+<p>Como tornar serviços disponíveis aos clientes de uma maneira controlada sem expor o endereço real
+do terminal no qual o serviço está localizado.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">Orientação de Seleção</a></h2>
+<p>Use este padrão quando:</p>
+<ul>
+	<li>O acesso a um serviço deve ser fornecido através de um ponto de controle, sem expor o local real
+	(endereço de terminal) do serviço aos clientes.</li>
+	<li>Alguma forma de controle (gerenciamento de acesso, autorização, auditoria ou criação de log) deve ser aplicada toda
+	vez que este serviço é ativado.</li>
+</ul>
+<p>Quando os serviços são expostos além dos limites organizacionais ou departamentais, problemas como
+segurança, manutenção de trilhas de auditoria, confiabilidade, qualidade do serviço e compatibilidade de comunicações
+devem ser considerados.</p>
+<p>É desejável reter a flexibilidade da implementação de serviço. Por exemplo,
+ser capaz de mover o serviço para um servidor diferente sem impactar qualquer cliente desse serviço
+fazendo parecer que o endereço do terminal em serviço não foi alterado.</p>
+<p>As ligações de protocolo que são suportadas pelo serviço podem não ser apropriadas
+para um conjunto específico de
+clientes. Uma solução é modificar o serviço para que ele suporte os protocolos necessários, mas em muitos
+casos esta solução pode não ser desejável ou possível.</p>
+<p>Talvez você deseje ocultar o local verdadeiro do serviço para que todos os clientes precisem acessá-lo
+indiretamente através de um ponto de controle específico. Ocultar o local verdadeiro do serviço permite
+que recursos de auditoria ou verificações de autenticação de cliente adicionais sejam incluídos.</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">A Solução </a></h2>
+
+<p>O serviço de destino é ocultado implementando uma mediação de barramento de serviço corporativo (ESB)
+que implementa a mesma interface. 
+Esta mediação age como um serviço virtual, ou proxy, que redireciona todos os pedidos para o provedor de serviços
+real. Os clientes veem apenas o serviço virtual, que parece ser o provedor real do serviço.</p>
+
+<p>Em alguns casos, o serviço virtual pode suportar um conjunto diferente de ligações de protocolo para
+essas ligações que são suportadas
+pelo serviço real, fornecendo, portanto, a conversão de protocolo necessária como parte da mediação.</p>
+<p>
+
+Em sua forma mais simples, a mediação redireciona cada pedido para um endereço de terminal pré-configurado. 
+Uma abordagem mais flexível usa uma consulta para um registro de serviço para determinar o endereço real, armazenando
+este valor em cache para uso com pedidos subsequentes.</p>
+
+<p>O serviço virtual, ou mediação, implementa vários recursos adicionais. Em uma implementação
+típica, a mediação registra cada pedido para propósitos de auditoria. O serviço virtual
+também pode fornecer um
+nível adicional de controle de acesso, verificando as credenciais que estão
+associadas a cada pedido recebido. 
+Uma implementação mais sofisticada também pode fornecer mapeamento de identidade
+entre diferentes domínios de segurança.</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="在您可以使用 Service Proxy: static endpoint 型樣之前，必須知道及必須具有的資源的明細。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>使用 Service Proxy: static endpoint 型樣的限制</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.constraints">
+	<h1 class="topictitle1">使用 <span>Service Proxy: static endpoint</span> 型樣的限制</h1>
+	<div>
+		<p class="shortdesc">當您使用此型樣時，將適用一些限制。</p>
+	</div>
+		<p>只有在可以符合下列所有限制時，才能使用 <span>Service Proxy: static endpoint</span> 型樣：</p>
+<ul>
+	<li>要求必須透過 HTTP 或 HTTPS，以 SOAP 訊息形式接收。</li>
+	<li>要求端應用程式必須支援同步要求回應互動樣式。</li>
+	<li>目標服務必須透過 HTTP 或 HTTPS 連結提供 SOAP。</li>
+	<li>定義目標服務介面的 WSDL 可以具有多個埠類型及連結，但是只會使用第一個埠類型或連結來配置產生的型樣實例。您可以在訊息流程編輯器中選取替代項目。</li>
+	<li>如果需要記載，則會採用此型樣所使用的格式，以符合您自己環境的需求。</li>
+	
+</ul>
+	<p>
+	<a href="overview.htm#anchorBack" title="上一步">回到 Service Proxy: static endpoint 型樣規格</a>
+</p>
+</body>
+</html>

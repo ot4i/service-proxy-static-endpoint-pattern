@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="security" content="público"/>
+	<meta name="Robots" content="index,follow"/>
+	<meta name="DC.Type" content="referência"/>
+	<meta name="DC.Title" content="Parâmetros padrão para o padrão de Service Proxy: Terminal Estático"/>
+	<meta name="abstract" content="Tabelas contendo os detalhes dos parâmetros padrão para o padrão de Service Proxy: Terminal Estático"/>
+	<meta name="description" content="Tabelas contendo os detalhes dos parâmetros padrão para o padrão de Service Proxy: Terminal Estático"/>
+	<meta name="DC.Format" content="XHTML"/>
+	<meta name="DC.Language" content="en-us"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->	
+	<link rel="stylesheet" type="text/css" href="../../../css/style2.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Parâmetros para o Padrão de Service Proxy: Terminal Estático</title>	
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+	 <!-- START NON-TRANSLATABLE -->
+	<script language="JavaScript">
+	<!--
+
+	function getParameter(location, name) {
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		var search = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(search);
+		var results = regex.exec(location);
+		return (results == null ? true : (results[1] == "false" ? false : true));
+	}
+	
+	function addStyleSheet() {
+		if (getParameter(window.location.href, "everything") == false) {
+			var headId = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement("link");
+			cssNode.type = "text/css";
+			cssNode.rel = "stylesheet";
+			cssNode.href = "../../../css/patterns.css";
+			cssNode.media = "screen";
+			headId.appendChild(cssNode);
+		}
+	}
+		
+	addStyleSheet(); // Depends on the query string!
+	
+	function getElementsByStyleClass (className) {
+  		var all = document.all ? document.all :
+    	document.getElementsByTagName('*');
+  		var elements = new Array();
+  		
+  		for (var e = 0; e < all.length; e++) {
+    		if (all[e].className == className) {
+      			elements[elements.length] = all[e];
+      		}
+      	}
+ 		return elements;
+	}
+	
+	function collapseAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.COLLAPSEALL');
+		}
+	}
+	
+	function expandAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.EXPANDALL');
+		}
+	}
+	
+	function toggleTwisty(group) {
+		changeTwisty(group, 'TWISTIE.TOGGLE');
+		if (typeof kc === "object" && typeof kc.resize === "function") kc.resize();
+	}
+
+	function changeTwisty(group, mode) {		
+		whichGroupId = group.parentNode.id;
+
+		whichGroupContainerId = whichGroupId + "Container";
+		whichGroupTwistyId = whichGroupId + "Twisty";
+		whichGroupTwistyImageId = whichGroupId + "Arrow";
+		groupContainerObj = document.getElementById(whichGroupContainerId);
+		twistyArrowContainerObj = document.getElementById(whichGroupTwistyId);
+		twistyArrowImageObj = document.getElementById(whichGroupTwistyImageId);
+		group.parentNode.style.height = "auto";
+
+		var toShow = false;
+		
+		if (mode == 'TWISTIE.TOGGLE') {
+			if (groupContainerObj.style.display == "none" || groupContainerObj.style.display == "") {
+				toShow = true;
+			} else {
+				toShow = false;
+			}
+		} else if (mode == 'TWISTIE.EXPANDALL') {
+			toShow = true;
+		}
+		
+		if (toShow) {
+			groupContainerObj.style.visibility = "visible";
+			groupContainerObj.style.display = "block";
+			twistyArrowImageObj.src = '../../../images/twisty-open.png'
+			group.parentNode.style.height = (groupContainerObj.offsetHeight + 30) +'px'; 
+	
+		} else {
+			groupContainerObj.style.visibility = "hidden";
+			groupContainerObj.style.display = "none";
+			twistyArrowImageObj.src = '../../../images/twisty-closed.png'
+		}
+	
+	}
+	//-->
+	</script>
+	 <!-- END NON-TRANSLATABLE -->
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.parametertable">
+	<!-- Page main title -->
+  	<div id="title" class="invisible">
+		<h1 class="patterns-title">Parâmetros para o Padrão de <span>Service Proxy: Terminal Estático</span></h1>
+  	</div>
+
+
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="serviceInformation">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="serviceInformationTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="serviceInformationArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Informações de Serviço</div>
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="serviceInformationContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Default</th>
+												  <th valign="top" width="*">Descrição</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															WSDL para o provedor de serviços</th>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Este parâmetro define o arquivo WSDL implementável que define a interface
+		                        do serviço para o qual o proxy é criado.</p>
+		                        <p>O arquivo WSDL implementável deve ser selecionado a partir de um conjunto de mensagens da área de trabalho.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															URL do provedor de serviços</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Este parâmetro define o terminal no qual o serviço que está sendo colocado em proxy está localizado.</p>
+    <p>Se não especificado, o terminal é determinado a partir das informações sobre ligação no arquivo WSDL.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															URL do Proxy</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Este parâmetro define o caminho da URL que é usado para definir o terminal para o proxy implementado.</p>
+    <p>O endereço de serviço completo também inclui o nome do host e a porta,
+    os quais são determinados quando o proxy é implementado.</p>
+		                        <p>Se nenhum caminho for especificado, o caminho do WSDL de serviço será usado.</p> 
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Validação da solicitação de SOAP</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">Nenhum</span>
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Mensagens SOAP recebidas são validadas conforme definidas por este parâmetro.</p>
+    <p> Os valores válidos são:</p>
+    <ul>
+        <li> <span class="msobjpropval">Nenhum</span></li> 
+        <li> <span class="msobjpropval">Conteúdo e
+Valor</span></li></ul>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Validação da resposta SOAP</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="2*" class="invisible">
+														<span class="msobjpropval">Nenhum</span>
+														</td>
+														<td valign="top" width="*">
+															
+    <p>As respostas de SOAP são validadas conforme definido por este parâmetro.</p>
+    <p> Os valores válidos são:</p>
+    <ul>
+        <li> <span class="msobjpropval">Nenhum</span></li> 
+        <li> <span class="msobjpropval">Conteúdo e
+Valor</span></li></ul>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="log">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="logTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="logArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Criação de log</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="logContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Padrão</th>
+												  <th valign="top" width="*">Descrição</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Criação de log requerida</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			Limpo
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Este parâmetro padrão determina se a
+										instância padrão inclui o código para criação de log.</p>
+	                        <p>Se <span class="msobjprop">Criação de log requerida</span> estiver limpa, um subfluxo de Log não será incluído.</p>
+	                        <p>Se <span class="msobjprop">Criação de log requerida</span> estiver selecionado,
+                    um subfluxo de Log será incluído no
+                    fluxo de mensagens e os valores deverão ser configurados para <span class="msobjprop">Gerenciador de filas de log</span>
+                    e <span class="msobjprop">Fila de Logs</span>.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Gerenciador de filas de log</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Este parâmetro padrão define o gerenciador de filas para criação de log. 
+	                        Ele poderá ser deixado em branco se o gerenciador de filas do broker for usado para criação de log.</p>
+	                        <p>Este parâmetro é necessário apenas se <span class="msobjprop">Criação de log requerida</span>
+     é selecionado.
+	                        </p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Fila de Logs</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			<span class="msobjpropval">LOG</span>
+														</td>
+														<td valign="top" width="*">
+															
+							<p>Este parâmetro padrão define a fila para criação de log.</p>
+							<p>Este parâmetro é necessário apenas se <span class="msobjprop">Criação de log requerida</span>
+     é selecionado.</p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+	
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="errorHandling">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="errorHandlingTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="errorHandlingArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Tratamento de erro</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="errorHandlingContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Padrão</th>
+												  <th valign="top" width="*">Descrição</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Mensagem de erro necessária</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			Selecionado
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Este parâmetro padrão define se o aplicativo padrão cria os
+                    elementos de fluxo de mensagens que criam as mensagens de erro.</p>
+	                        <p>Se <span class="msobjprop">Mensagem de erro requerida</span> for selecionado,
+                    os valores deverão ser configurados para <span class="msobjprop">Gerenciador de filas de erros</span>
+                    e <span class="msobjprop">Fila de erros</span>.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Gerenciador de filas de erros</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Este parâmetro padrão define o gerenciador de filas para mensagens de erro. 
+	                        Ele poderá ser deixado em branco se o gerenciador de filas do broker for usado para criação de log.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Fila de erros</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Sim
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			<span class="msobjpropval">ERROR</span>
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Este parâmetro padrão define a fila para mensagens de erro.</p>
+	                        <p>Este parâmetro é necessário apenas se <span class="msobjprop">Mensagem de erro requerida</span>
+                    é selecionado.
+	                        </p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="general">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="generalTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="generalArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Gerais</div>
+						
+								
+								
+								
+								
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="generalContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Parâmetro de padrão</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Padrão</th>
+												  <th valign="top" width="*">Descrição</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Esquema do broker</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																			<span class="msobjpropval">mqsi</span>
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Se um esquema do broker for definido, os fluxos de mensagens e arquivos ESQL serão criados nesse esquema. 
+		                        Se nenhum esquema for definido, o esquema do broker padrão será usado.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Prefixo do Fluxo</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Se configurado, este prefixo é incluído no início de todos os nomes de fluxo de mensagens.</p>
+		                        <p>É possível usar apenas caracteres que sejam válido em um nome do fluxo de mensagens.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Sufixo do fluxo</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Se configurado, este sufixo é incluído no final de
+									todos os nomes de fluxo de mensagens.</p>
+		                        <p>É possível usar apenas caracteres que sejam válido em um nome do fluxo de mensagens.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Prefixo de Fila</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Se configurado, este prefixo é incluído no início de todos os nomes da fila.
+		                        </p>
+		                        <p>Se os nomes de fila padrão forem usados, o prefixo, o sufixo, ou ambos, deverão ser configurados para
+										identificar nomes de fila para cada instância padrão. 
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Sufixo da Fila</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Se configurado, este sufixo é incluído no final de todos os nomes de fila.</p>
+								<p>Se os nomes de fila padrão forem usados, o prefixo, o sufixo, ou ambos, deverão ser configurados para
+										identificar nomes de fila para cada instância padrão. 
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Descrição curta</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Esta descrição é incluída na
+										propriedade <span class="msobjprop">Descrição Resumida</span>
+										de todos os fluxos de mensagens que são gerados.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Descrição detalhada</th>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Não
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Esta descrição é incluída na
+										propriedade <span class="msobjprop">Descrição Detalhada</span>
+										de todos os fluxos de mensagens que são gerados.</p>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+<div id="footnotes" class="invisible">
+	<div class="box first">
+		<div class="TitleBox"><!-- --></div>
+		<div class="FooterBox"><!-- --></div>
+		<div class="TL"><!-- --></div>
+		<div class="TR"><!-- --></div>
+		<div class="BL"><!-- --></div>
+		<div class="BR"><!-- --></div>
+		<div class="ContentBox">
+			<div class="invisible">
+				<p class="shortdesc">
+					Todos os parâmetros de padrão são listados com seus valores-padrão.
+				</p>
+				<p>
+				A coluna intitulada <b>O</b> indica se a propriedade é <dfn class="term">obrigatória</dfn>. 
+				A coluna intitulada <b>C</b> indica se a propriedade é <dfn class="term">configurável</dfn>,
+				significando que é possível alterar o valor quando você inclui o fluxo de mensagens no
+				arquivo broker archive (BAR).
+				</p>
+				<p>
+					Onde nenhum padrão é indicado, o valor-padrão é uma cadeia vazia.
+				</p>
+			</div>
+			<a href="overview.htm#anchorBack" title="Voltar">Voltar para a especificação de padrão Service Proxy: Terminal Estático</a>
+			<p></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを使用する前に知っておくべき事柄や、必要なリソースについての詳細。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンの使用に関する制約</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.constraints">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンの使用に関する制約</h1>
+	<div>
+		<p class="shortdesc">このパターンを使用する場合に適用される制約は多数あります。</p>
+	</div>
+		<p>以下のすべての制約を満たすことができる場合にのみ、「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンを使用できます。</p>
+<ul>
+	<li>HTTP または HTTPS を介した SOAP メッセージとして要求を受け取る必要があります。
+</li>
+	<li>要求元アプリケーションが同期要求応答対話スタイルをサポートしている必要があります。
+</li>
+	<li>ターゲット・サービスが SOAP over HTTP または HTTPS バインディングを提供している必要があります。</li>
+	<li>ターゲット・サービス・インターフェースを定義する WSDL には複数のポート・タイプとバインディングを含めることができますが、生成されたパターン・インスタンスの構成には、最初のポート・タイプまたはバインディングのみが使用されます。
+メッセージ・フロー・エディターで代わりのものを選択できます。</li>
+	<li>ロギングが必要な場合、このパターンで使用されるフォーマットが、実際の環境の要件を満たしていると想定されます。</li>
+	
+</ul>
+	<p>
+		<a href="overview.htm#anchorBack" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+	</p>
+</body>
+</html>

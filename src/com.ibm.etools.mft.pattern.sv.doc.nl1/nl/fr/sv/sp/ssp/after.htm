@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Tâches à exécuter après avoir généré le modèle Proxy de service : noeud final statique."/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Tâches à exécuter après avoir généré le modèle Proxy de service : noeud final statique</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.after">
+	<h1 class="topictitle1">Tâches à exécuter après avoir généré le modèle <span>Proxy de service : noeud final statique</span></h1>
+	<p class="shortdesc">Tâches que vous devez exécuter après avoir généré le modèle.</p>
+<ol>
+<li>Créez le fichier archive de courtier (BAR). 
+Ajoutez le flux de messages généré au fichier BAR. Dans l'éditeur d'archives du courtier, vous devez sélectionner l'option <span class="uicontrol">Compiler et intégrer des ressources</span> avant de générer le fichier BAR.	
+</li>
+<li>Configurez le fichier archive de courtier. Il n'est pas nécessaire d'effectuer d'autres opérations de configuration au niveau du flux de messages dans le fichier archive de courtier avant de déployer le flux de messages de l'instance du modèle <span>Proxy de service : noeud  final statique</span>. Néanmoins, vous pouvez vérifier certaines options par défaut et configurer des modifications pour votre environnement.
+<p>Dans la page <span class="uicontrol">Gestion</span> de l'éditeur <span class="uicontrol">Archive de courtier</span> :</p>
+<ul>
+	<li>Facultatif : utilisez la propriété
+	<span class="msobjprop">RequestLoggingOn</span> définie par l'utilisateur pour indiquer si la consignation est activée ou désactivée pour le flux de messages.</li>
+	<li>Facultatif : utilisez la propriété <span class="msobjprop">ResponseLoggingOn</span> définie par l'utilisateur pour indiquer si la consignation est activée ou désactivée pour le flux de messages.</li>
+	<li>Facultatif : utilisez la propriété <span class="msobjprop">ErrorLoggingOn</span> définie par l'utilisateur pour indiquer si des messages d'erreur sont générés.</li>
+	<li>Facultatif : vous pouvez également modifier les propriétés configurables dans l'archive de courtier, telles que les propriétés de sécurité ou de création d'instances supplémentaires. Vous devez vérifier que les valeurs que vous changez n'affectent pas le comportement de l'instance du modèle.</li>
+	<li>Si le transport défini dans le fichier WSDL est HTTPS, des opérations de configuration SSL supplémentaires sont nécessaires. Voir &quot;Implémentation de l'authentification SSL&quot; dans la documentation d'IBM Integration.</li>
+</ul></li>
+<li>Créez les files d'attente. Lorsque vous appliquez le modèle, la liste des files d'attente WebSphere MQ est générée, avec les noms de file d'attente et de gestionnaire de files d'attente, que  vous devez créer s'ils n'existent pas. Tous les paramètres de message nécessaires au modèle sont définis explicitement dans les messages et ne dépendent pas des paramètres de file d'attente.</li>
+<li>Dans le fichier récapitulatif, consultez la liste des files d'attente que vous devez créer. Ce fichier se trouve dans le dossier Configuration du modèle du projet d'instance de modèle <i>InstanceName</i>.</li>
+<li>Créez les ressources <span>WebSphere MQ</span>. Vous pouvez créer les ressources <span>WebSphere MQ</span> depuis la ligne de commande en utilisant des programmes et des utilitaires, tels que <span class="cmdname">runmqsc</span>, ou en utilisant l'interface graphique <span>WebSphere MQ</span> Explorer. 
+Pour plus d'informations sur la création des ressources <span>WebSphere MQ</span>, voir <span>WebSphere MQ</span> Intercommunication
+sur la page Web
+<img src="../../../images/external_link.gif" alt="Ce lien s'ouvre dans une nouvelle fenêtre" class="external_link" />
+<a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">Bibliothèque WebSphere MQ</a>.</li>
+<li>Déployez le fichier BAR. L'ensemble de messages qui contient le fichier déployable WSDL doit être déployé en utilisant le même ou un autre fichier BAR.
+<p>L'adresse du service proxy est déterminée après le déploiement et publiée vers les demandeurs. 
+Les informations peuvent être obtenues en utilisant la commande  <span class="cmdname">mqsireportproperties</span>
+pour déterminer les propriétés HTTPCOnnector du groupe d'exécution.</p></li>
+</ol>
+	<p>
+		<a href="overview.htm#anchorBack" title="Retour">Spécification du modèle Proxy de service : noeud final statique</a>
+	</p>
+</body>
+</html>

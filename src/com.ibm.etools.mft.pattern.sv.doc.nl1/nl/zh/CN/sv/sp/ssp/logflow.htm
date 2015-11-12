@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 模式可在服务请求者与服务提供者之间提供松耦合。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 模式的日志子流</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 模式的日志子流</h1>
+	<p class="shortdesc">
+	启用记录时，日志子流将根据用户定义的属性 <span class="msobjprop">RequestLoggingOn</span> 和 <span class="msobjprop">ResponseLoggingOn</span> 来记录请求和应答。</p>
+	<p>
+	日志消息将作为持久 WebSphere MQ 消息写入 WebSphere MQ 队列。将根据您组织中的标准做法来单独处理这些日志消息。消息日志的 MQRFH2 头中包含原始消息和以下信息：</p>
+	<ul>
+		<li>
+			时间戳记</li>
+		<li>
+			代理名称</li>
+		<li>
+			消息流名称</li>
+		<li>
+			服务详细信息</li>
+		<li>
+			状态（1 = 请求，2 = 应答，-2 = 故障）</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Proxy: static endpoint 模式规范</a>
+</body>
+</html>

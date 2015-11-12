@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを使用して、サービス要求元とサービス・プロバイダーとの疎結合を提供します。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンのプロキシー・フロー</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンのプロキシー・フロー</h1>
+	<p class="shortdesc">
+「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンのプロキシー・フローに関する詳細。</p>
+</div>
+
+<p>SimpleServiceProxy フローは、以下の方法ですべてのサービス要求を処理します。</p>
+<ol>
+<li>パターン・インスタンス構成で妥当性検査が必要とされている場合、メッセージ・フローが要求を受け取ると、要求が妥当性検査されます。
+</li>
+<li>パターン・パラメーターで提供されている、あるいはブローカー・アーカイブ (BAR) ファイルで構成されているプロバイダー URL を使用することによって、メッセージ・フローはサービス要求をターゲット・サービス・プロバイダーに転送するために必要なパラメーターを設定します。
+</li>
+
+<li>次に、SOAP 要求がサービス・プロバイダーに送信されます。
+成功応答を受信すると、この応答は最初のサービス要求元に直接返されます。
+障害メッセージを受信すると、障害が発生したことを示すフロー状況が設定され、障害メッセージがサービス要求元に返されます。
+</li>
+<li>要求および応答のロギングを含めるように (または除外するように) パターンを構成できます。
+</li>
+<li>ロギングが含まれない場合、応答が返されるとメッセージ・フローは正常に終了します。</li>
+<li>また、メッセージ・フローには、エラー処理用のサブフローも含まれます。
+</li>
+<li>エラー・メッセージがエラー・キューに書き込まれます (ただしパターン・インスタンスでこのオプションを構成した場合)。</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+</p>
+</body>
+</html>

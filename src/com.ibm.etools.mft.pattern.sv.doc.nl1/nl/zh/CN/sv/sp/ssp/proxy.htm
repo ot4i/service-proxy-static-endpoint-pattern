@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 模式可在服务请求者与服务提供者之间提供松耦合。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 模式的代理流</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 模式的代理流</h1>
+	<p class="shortdesc">
+	有关 <span>Service Proxy: static endpoint</span> 模式的代理流的详细信息。</p>
+</div>
+
+<p>SimpleServiceProxy 流通过以下方式处理所有服务请求：</p>
+<ol>
+<li>如果模式实例配置要求验证，那么在消息流接收请求时，将验证请求。</li>
+<li>消息流通过使用模式参数提供的或者在代理归档 (BAR) 文件中配置的提供者 URL，设置将服务请求转发至目标服务提供者所需的参数。</li>
+
+<li>然后将 SOAP 请求发送至服务提供者。
+如果收到成功响应，那么此响应将直接返回至初始服务请求者。
+如果接收到故障消息，那么将设置流状态以指示发生故障，并将故障消息返回至服务请求者。</li>
+<li>您可以配置模式以包含或排除请求和应答记录。</li>
+<li>如果不包含记录，那么在返回应答时消息流成功结束。</li>
+<li>消息流还包含用于错误处理的子流。
+</li>
+<li>如果已为模式实例配置了此选项，那么会将错误消息写入到错误队列。</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Proxy: static endpoint 模式规范</a>
+</p>
+</body>
+</html>

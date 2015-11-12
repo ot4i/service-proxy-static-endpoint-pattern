@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="有关使用 Service Proxy: static endpoint 模式之前必须了解的内容和必须具备的资源的详细信息。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>使用 Service Proxy: static endpoint 模式时的约束</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.constraints">
+	<h1 class="topictitle1">使用 <span>Service Proxy: static endpoint</span> 模式时的约束</h1>
+	<div>
+		<p class="shortdesc">使用此模式时会有若干约束。</p>
+	</div>
+		<p>只有在满足以下所有约束时，才可以使用 <span>Service Proxy: static endpoint</span> 模式：</p>
+<ul>
+	<li>请求的接收形式必须是 HTTP 或 HTTPS 上的 SOAP 消息。</li>
+	<li>请求应用程序必须支持同步请求响应交互样式。</li>
+	<li>目标服务必须提供 HTTP 或 HTTPS 上的 SOAP 绑定。</li>
+	<li>定义目标服务接口的 WSDL 可以具有多个端口类型和绑定，但是只有第一个端口类型或绑定可用于配置生成的模式实例。您可以在消息流编辑器中选择备用项。</li>
+	<li>如果需要记录，那么会假定此模式使用的格式符合您自己环境的需求。</li>
+	
+</ul>
+	<p>
+	<a href="overview.htm#anchorBack" title="返回">返回至 Service Proxy: static endpoint 模式规范</a>
+	</p>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Utilice el patrón Proxy de servicio: punto final estático para proporcionar acoplamiento abierto entre solicitantes de servicios y proveedores de servicios."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Flujo Proxy para el patrón Proxy de servicio: punto final estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1">Flujo Proxy para el patrón <span>Proxy de servicio: punto final estático</span></h1>
+	<p class="shortdesc">
+	Detalles sobre el flujo Proxy para el patrón <span>Proxy de servicio: punto final estático</span>.</p>
+</div>
+
+<p>El flujo SimpleServiceProxy procesa todas las solicitudes de servicio de la siguiente manera:</p>
+<ol>
+<li>Cuando el flujo de mensajes recibe una solicitud, ésta se valida si la configuración de la instancia de patrón necesita validación.</li>
+<li>El flujo de mensajes establece los parámetros que son necesarios para reenviar la solicitud e servicio al proveedor de servicio de destino utilizando el URL de proveedor que se ha proporcionado en un parámetro de patrón o se ha configurado en el archivo archivador de intermediario (BAR).</li>
+
+<li>A continuación, la solicitud SOAP se envía al proveedor de servicio. 
+Si se recibe una respuesta satisfactoria, esta respuesta se devuelve directamente al solicitante de servicio que la inició. 
+Si se recibe un mensaje de error, el estado del flujo se establece para indicar que se ha producido un error y el mensaje de error se devuelve al solicitante de servicio.</li>
+<li>Puede configurar el patrón para incluir o excluir el registro de solicitudes y respuestas. 
+ </li>
+<li>Si el registro no está incluido, el flujo de mensajes finaliza correctamente cuando se devuelve la respuesta.</li>
+<li>El flujo de mensajes también contiene un subflujo de manejo de errores. 
+</li>
+<li>Los mensajes de error se escriben en la cola de errores si ha configurado esta opción para la instancia de patrón.</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Proxy de servicio: punto final estático</a>
+</p>
+</body>
+</html>

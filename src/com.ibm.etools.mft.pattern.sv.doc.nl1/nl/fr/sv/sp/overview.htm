@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Vous pouvez utiliser le modèle Proxy de service pour fournir un découplage maximal entre les demandeurs de service et les fournisseurs de service en introduisant un niveau supplémentaire d'adressage indirect à l'appel de service."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Modèle Proxy de service</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1">Modèle <span>Proxy de service</span></h1>
+<div>
+<p class="shortdesc">Utilisez le modèle Proxy de service pour fournir un découplage maximal entre les demandeurs de service et les fournisseurs de service en introduisant un niveau supplémentaire d'adressage indirect à l'appel de service.</p>
+<p>Dans sa forme la plus simple, le modèle Proxy de service masque l'emplacement réel de l'implémentation d'un service. 
+Le modèle est également particulièrement utile pour fournir un point de gestion pour le contrôle des accès, le suivi des demandes et les audits.</p>
+<div class="image"><img src="./serviceproxy.gif" alt="Diagramme de l'architecture du proxy de service"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">Contexte</a></h2>
+<p>Le client doit appeler une opération sur un service. Le client ne doit pas accéder au service directement, car l'adresse du noeud final où se trouve le service peut changer ou l'adresse réelle du noeud final peut changer. L'adresse de noeud final réelle est masquée afin de pouvoir contrôler l'accès au service.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">Problème</a></h2>
+<p>Comment rendre disponible les services aux clients en le contrôlant sans exposer l'adresse réelle du noeud final où se trouve le service.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">Aide à la sélection</a></h2>
+<p>Utilisez ce modèle lorsque :</p>
+<ul>
+	<li>L'accès à un service doit être fourni via un point de contrôle sans exposer l'emplacement réel (l'adresse de noeud final) du service aux clients.</li>
+	<li>Une certaine forme de contrôle (gestion d'accès, autorisation, audit ou consignation) doit être appliquée chaque fois que le service est activé.</li>
+</ul>
+<p>Lorsque les services sont exposés au-delà de l'entreprise ou du service de l'entreprise, vous devez tenir compte de divers éléments, tels que la sécurité, la maintenance de trace rétrospective, la qualité du service et la compatibilité des communications.</p>
+<p>Il est préférable de conserver la souplesse du déploiement de service pour pouvoir, par  exemple, transférer le service vers un serveur différent sans affecter les clients du service en ne laissant pas apparaître que l'adresse a changé.</p>
+<p>Les liaisons de protocoles prises en charge par le service peuvent ne pas être adaptées à certains clients. Une solution consiste à modifier le service pour qu'il prenne en charge les protocoles nécessaires, mais dans tous les cas, cette solution peut ne pas être souhaitable ou possible.</p>
+<p>Vous pouvez décider de masquer l'emplacement réel du service afin que tous les clients doivent y accéder indirectement via un point de contrôle. Le masquage de l'emplacement réel du service permet d'ajouter des fonctions d'audit ou des vérifications d'authentification de client supplémentaires.</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">Solution</a></h2>
+
+<p>Le service cible est masqué en déployant une médiation de bus de service d'entreprise qui implémente la même interface. 
+Cette médiation fait office de service virtuel ou, proxy, qui redirige toutes les demandes vers le fournisseur de service réel. Les clients voient uniquement le service virtuel qui semble être le fournisseur réel du service.</p>
+
+<p>Dans certains cas, le service virtuel peut prendre en charge des liaisons de protocoles différentes de celles prises en charge par le service réel en fournissant ainsi la conversion de protocole nécessaire dans le cadre de la médiation.</p>
+<p>
+
+Dans sa forme la plus simple, la médiation redirige chaque demande vers l'adresse de noeud final préconfigurée. 
+Une approche plus souple utilise une requête vers un registre de service pour déterminer l'adresse réelle en plaçant en mémoire cache cette valeur qui est utilisée avec les demandes suivantes.</p>
+
+<p>Le service virtuel, ou médiation, implémente un certain nombre de fonctions supplémentaires. Dans une implémentation type, la médiation consigne chaque demande à des fins d'audit. Le service virtuel peut également fournir un niveau de contrôle d'accès supplémentaire en vérifiant les justificatifs associés à chaque demande entrante. 
+Une implémentation plus complexe peut également permettre d'associer l'identité entre les différents domaines de sécurité.</p>
+
+
+</div>
+</body>
+</html>

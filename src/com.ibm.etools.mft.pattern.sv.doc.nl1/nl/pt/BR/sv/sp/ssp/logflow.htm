@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="pt-br">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Use o padrão de Service Proxy: terminal estático para fornecer loose coupling entre solicitantes de serviços e provedores de serviços."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Subfluxo de Log para o Padrão do Service Proxy: Terminal Estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">Subfluxo de Log para o Padrão de <span>Service Proxy: Terminal Estático</span></h1>
+	<p class="shortdesc">
+	Quando a criação de log é ativada, o subfluxo de Log registra os pedidos e respostas, de acordo
+	com as propriedades definidas pelo usuário:
+	<span class="msobjprop">RequestLoggingOn</span> and <span class="msobjprop">ResponseLoggingOn</span>. 
+	</p>
+	<p>
+	As mensagens de log são gravadas como mensagens do WebSphere MQ persistentes em uma fila do WebSphere MQ. 
+	Estas mensagens de log são processadas separadamente de acordo com as práticas padrão
+	em sua organização. 
+	O log de mensagem contém a mensagem original e as seguintes informações em um cabeçalho MQRFH2:
+	</p>
+	<ul>
+		<li>
+			Registro de data e hora
+		</li>
+		<li>
+			Nome do broker
+		</li>
+		<li>
+			Nome do fluxo de mensagens
+		</li>
+		<li>
+			Detalhes do serviço
+		</li>
+		<li>
+			Status (1 = pedido, 2 = resposta, -2 = falha)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Voltar">Voltar para a especificação de padrão Service Proxy: Terminal Estático</a>
+</body>
+</html>

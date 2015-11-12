@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Utilisez le modèle Proxy de service : noeud final statique pour fournir un couplage large entre les demandeurs et fournisseurs de services."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Flux secondaire Journal pour le modèle Proxy de service : noeud final statique</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">Flux secondaire Journal pour le modèle <span>Proxy de service : noeud final statique</span></h1>
+	<p class="shortdesc">
+	Lorsque la consignation est activée, le flux secondaire Journal consigne les demandes et les réponses en fonction des propriétés	<span class="msobjprop">RequestLoggingOn</span> et <span class="msobjprop">ResponseLoggingOn</span> définies par l'utilisateur. 
+	</p>
+	<p>
+	Les messages de journal sont écrits comme messages persistants WebSphere MQ dans une file d'attente WebSphere MQ. 
+	Ces messages de journal sont ensuite traités séparément conformément aux pratiques standard de votre entreprise. 
+	Le journal des messages contient le message d'origine et les informations suivantes dans un en-tête MQRFH2 :
+	</p>
+	<ul>
+		<li>
+			Horodatage
+		</li>
+		<li>
+			Nom du courtier
+		</li>
+		<li>
+			Nom du flux de messages
+		</li>
+		<li>
+			Détails du service
+		</li>
+		<li>
+			Etat (1 = demande, 2 = réponse, -2 = erreur)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Proxy de service : noeud final statique</a>
+</body>
+</html>

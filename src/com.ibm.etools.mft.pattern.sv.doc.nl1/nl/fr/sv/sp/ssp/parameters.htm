@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="security" content="public"/>
+	<meta name="Robots" content="index,follow"/>
+	<meta name="DC.Type" content="référence"/>
+	<meta name="DC.Title" content="Paramètres du modèle pour le modèle Proxy de service : noeud final statique"/>
+	<meta name="abstract" content="Tables contenant les informations des paramètres du modèle pour le modèle Proxy de service : noeud final statique"/>
+	<meta name="description" content="Tables contenant les informations des paramètres du modèle pour le modèle Proxy de service : noeud final statique"/>
+	<meta name="DC.Format" content="XHTML"/>
+	<meta name="DC.Language" content="en-us"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->	
+	<link rel="stylesheet" type="text/css" href="../../../css/style2.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Paramètres du modèle Proxy de service : noeud final statique</title>	
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+	 <!-- START NON-TRANSLATABLE -->
+	<script language="JavaScript">
+	<!--
+
+	function getParameter(location, name) {
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		var search = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(search);
+		var results = regex.exec(location);
+		return (results == null ? true : (results[1] == "false" ? false : true));
+	}
+	
+	function addStyleSheet() {
+		if (getParameter(window.location.href, "everything") == false) {
+			var headId = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement("link");
+			cssNode.type = "text/css";
+			cssNode.rel = "stylesheet";
+			cssNode.href = "../../../css/patterns.css";
+			cssNode.media = "screen";
+			headId.appendChild(cssNode);
+		}
+	}
+		
+	addStyleSheet(); // Depends on the query string!
+	
+	function getElementsByStyleClass (className) {
+  		var all = document.all ? document.all :
+    	document.getElementsByTagName('*');
+  		var elements = new Array();
+  		
+  		for (var e = 0; e < all.length; e++) {
+    		if (all[e].className == className) {
+      			elements[elements.length] = all[e];
+      		}
+      	}
+ 		return elements;
+	}
+	
+	function collapseAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.COLLAPSEALL');
+		}
+	}
+	
+	function expandAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.EXPANDALL');
+		}
+	}
+	
+	function toggleTwisty(group) {
+		changeTwisty(group, 'TWISTIE.TOGGLE');
+		if (typeof kc === "object" && typeof kc.resize === "function") kc.resize();
+	}
+
+	function changeTwisty(group, mode) {		
+		whichGroupId = group.parentNode.id;
+
+		whichGroupContainerId = whichGroupId + "Container";
+		whichGroupTwistyId = whichGroupId + "Twisty";
+		whichGroupTwistyImageId = whichGroupId + "Arrow";
+		groupContainerObj = document.getElementById(whichGroupContainerId);
+		twistyArrowContainerObj = document.getElementById(whichGroupTwistyId);
+		twistyArrowImageObj = document.getElementById(whichGroupTwistyImageId);
+		group.parentNode.style.height = "auto";
+
+		var toShow = false;
+		
+		if (mode == 'TWISTIE.TOGGLE') {
+			if (groupContainerObj.style.display == "none" || groupContainerObj.style.display == "") {
+				toShow = true;
+			} else {
+				toShow = false;
+			}
+		} else if (mode == 'TWISTIE.EXPANDALL') {
+			toShow = true;
+		}
+		
+		if (toShow) {
+			groupContainerObj.style.visibility = "visible";
+			groupContainerObj.style.display = "block";
+			twistyArrowImageObj.src = '../../../images/twisty-open.png'
+			group.parentNode.style.height = (groupContainerObj.offsetHeight + 30) +'px'; 
+	
+		} else {
+			groupContainerObj.style.visibility = "hidden";
+			groupContainerObj.style.display = "none";
+			twistyArrowImageObj.src = '../../../images/twisty-closed.png'
+		}
+	
+	}
+	//-->
+	</script>
+	 <!-- END NON-TRANSLATABLE -->
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.parametertable">
+	<!-- Page main title -->
+  	<div id="title" class="invisible">
+		<h1 class="patterns-title">Paramètres du <span>Proxy de service : modèle de noeud final statique</span></h1>
+  	</div>
+
+
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="serviceInformation">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="serviceInformationTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="serviceInformationArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Informations de maintenance</div>
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="serviceInformationContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Paramètre du modèle</th>
+												  <th class="invisible" valign="top" width="*">O</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Valeur par défaut</th>
+												  <th valign="top" width="*">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Fichier WSDL du fournisseur de service</th>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Ce paramètre définit le ficher WSDL déployable qui définit l'interface du service pour lequel le proxy est créé.</p>
+		                        <p>Vous devez sélectionner le fichier WSDL déployable dans un ensemble de messages d'espace de travail.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															URL du fournisseur du service</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Ce paramètre définit le noeud final où se trouve le service qui utilise le proxy.</p>
+    <p>Si vous ne définissez pas le noeud final, il est déterminé depuis les informations de liaison dans le fichier WSDL.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															URL du proxy</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Ce paramètre définit le chemin d'URL utilisé pour définir le noeud final du proxy déployé.</p>
+    <p>L'adresse complète du service contient également le nom et le port de l'hôte qui sont déterminés lors du déploiement du proxy.</p>
+		                        <p>Si vous ne définissez pas le chemin, le chemin issu du fichier WSDL de service est utilisé.</p> 
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Validation de demande SOAP</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">Aucun</span>
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Les messages SOAP entrants sont validés conformément au paramètre.</p>
+    <p> Valeurs acceptées :</p>
+    <ul>
+        <li> <span class="msobjpropval">Aucun
+</span></li> 
+        <li> <span class="msobjpropval">Contenu et valeur</span></li></ul>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Validation de la réponse SOAP</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="2*" class="invisible">
+														<span class="msobjpropval">Aucun</span>
+														</td>
+														<td valign="top" width="*">
+															
+    <p>Les réponses SOAP sortantes sont validées conformément à ce paramètre.</p>
+    <p> Valeurs acceptées :</p>
+    <ul>
+        <li> <span class="msobjpropval">Aucun
+</span></li> 
+        <li> <span class="msobjpropval">Contenu et valeur</span></li></ul>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="log">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="logTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="logArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Consignation</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="logContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Paramètre du modèle</th>
+												  <th class="invisible" valign="top" width="*">O</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Valeur par défaut</th>
+												  <th valign="top" width="*">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Consignation nécessaire</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			Effacé
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Ce paramètre indique si l'instance de modèle inclut le code de consignation.</p>
+	                        <p>Si <span class="msobjprop">Consignation nécessaire</span> est désélectionné, aucun flux secondaire Journal n'est inclus.</p>
+	                        <p>Si <span class="msobjprop">Consignation nécessaire</span> est sélectionné, un flux secondaire Journal est inclus dans le flux de messages et vous devez définir les valeurs de <span class="msobjprop">Gestionnaire de files d'attente de consignation</span> et <span class="msobjprop">File d'attente de journaux</span>.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Gestionnaire de files d'attente de journaux</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Ce paramètre du modèle définit le gestionnaire de files d'attente de la consignation. 
+	                        Vous pouvez ne pas le définir si le gestionnaire de files d'attente du courtier est utilisé pour la consignation.</p>
+	                        <p>Vous devez le définir uniquement si vous sélectionnez <span class="msobjprop">Consignation nécessaire</span>.
+	                        </p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															File d'attente des journaux</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			<span class="msobjpropval">LOG</span>
+														</td>
+														<td valign="top" width="*">
+															
+							<p>Ce paramètre définit la file d'attente de consignation.</p>
+							<p>Vous devez définir ce paramètre uniquement si vous définissez <span class="msobjprop">Consignation nécessaire</span>.</p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+	
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="errorHandling">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="errorHandlingTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="errorHandlingArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Traitement d'erreurs</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="errorHandlingContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Paramètre du modèle</th>
+												  <th class="invisible" valign="top" width="*">O</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Valeur par défaut</th>
+												  <th valign="top" width="*">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Message d'erreur nécessaire</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			Sélectionné
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Ce paramètre de modèle indique si l'application de modèle crée les éléments de flux de messages qui créent les messages d'erreur.</p>
+	                        <p>Si vous sélectionnez <span class="msobjprop">Message d'erreur nécessaire</span>, vous devez définir les valeurs de <span class="msobjprop">Gestionnaire de file d'attente d'erreurs</span> et <span class="msobjprop">File d'attente d'erreurs</span>.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Gestionnaire de files d'attente d'erreurs</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Ce paramètre de modèle définit le gestionnaire de files d'attente des messages d'erreur. 
+	                        Vous pouvez ne pas le définir si le gestionnaire de files d'attente du courtier est utilisé pour la consignation.</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															File d'attente d'erreurs</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Oui
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			<span class="msobjpropval">ERROR</span>
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>Ce paramètre du modèle définit la file d'attente des messages d'erreur.</p>
+	                        <p>Vous devez le définir uniquement si vous sélectionnez <span class="msobjprop">Message d'erreur nécessaire</span>.
+	                        </p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="general">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="generalTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="generalArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">Dispositions générales</div>
+						
+								
+								
+								
+								
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="generalContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">Paramètre du modèle</th>
+												  <th class="invisible" valign="top" width="*">O</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">Valeur par défaut</th>
+												  <th valign="top" width="*">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Schéma de courtier</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																			<span class="msobjpropval">mqsi</span>
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Si un schéma de courtier est défini, tous les flux de messages et fichiers ESQL sont créés dans le schéma. 
+		                        Si aucun schéma n'est défini, le schéma de courtier par défaut est utilisé.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Préfixe de flux</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Si vous définissez ce préfixe, il est ajouté au début de tous les noms de flux de messages.</p>
+		                        <p>Vous pouvez utiliser uniquement les caractères qui sont valides dans les noms de flux de messages.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Suffixe de flux</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Si vous définissez ce suffixe, il est ajouté à la fin de tous les noms de flux de messages.</p>
+		                        <p>Vous pouvez utiliser uniquement les caractères qui sont valides dans les noms de flux de messages.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Préfixe de file d'attente</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Si vous définissez ce préfixe, il est ajouté au début de tous les noms de file d'attente.
+		                        </p>
+		                        <p>Si vous utilisez les noms de file d'attente par défaut, vous devez définir le préfixe, le suffixe ou les deux pour identifier les noms de file d'attente de chaque instance du modèle. 
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Suffixe de file d'attente</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Si vous définissez ce suffixe, il est ajouté à la fin de tous les noms de file d'attente.</p>
+								<p>Si vous utilisez les noms de file d'attente par défaut, vous devez définir le préfixe, le suffixe ou les deux pour identifier les noms de file d'attente de chaque instance du modèle. 
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Description abrégée</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Cette description est ajoutée à la propriété
+		                        <span class="msobjprop">Description abrégée</span> de tous les flux de messages générés.</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															Description détaillée</th>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	Non
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>Cette description est ajoutée à la propriété
+		                        <span class="msobjprop">Description détaillée</span> de tous les flux de messages générés.</p>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+<div id="footnotes" class="invisible">
+	<div class="box first">
+		<div class="TitleBox"><!-- --></div>
+		<div class="FooterBox"><!-- --></div>
+		<div class="TL"><!-- --></div>
+		<div class="TR"><!-- --></div>
+		<div class="BL"><!-- --></div>
+		<div class="BR"><!-- --></div>
+		<div class="ContentBox">
+			<div class="invisible">
+				<p class="shortdesc">
+					Tous les paramètres du modèle sont répertoriés avec leurs valeurs par défaut.
+				</p>
+				<p>
+				La colonne avec l'en-tête <b>M</b> indique si la propriété est <dfn class="term">obligatoire</dfn>. 
+				La colonne avec l'en-tête <b>C</b> indique si la propriété est <dfn class="term">configurable</dfn>, ce qui signifie que vous pouvez modifier la valeur lorsque vous ajoutez le flux de messages au fichier d'archive du courtier (BAR).
+				</p>
+				<p>
+					Lorsqu'aucune valeur n'est définie, la valeur par défaut est une chaîne vide.
+				</p>
+			</div>
+			<a href="overview.htm#anchorBack" title="Retour">Spécification du modèle Proxy de service : noeud final statique</a>
+			<p></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

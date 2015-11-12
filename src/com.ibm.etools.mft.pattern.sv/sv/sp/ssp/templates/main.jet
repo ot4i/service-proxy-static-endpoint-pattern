@@ -1,0 +1,70 @@
+<%@taglib id="org.eclipse.jet.workspaceTags" prefix="ws"%>
+
+<%-- Define variables the root element in the model --%>
+<c:setVariable select="/*" var="root"/>
+
+<%-- Set top level pattern characteristics as attributes of root --%>
+<c:set select="$root" name="projectname"><c:get select="$root/instanceName"/>_Flows</c:set>
+<c:set select="$root" name="patternName"><c:get select="namespace-uri($root)"/></c:set>
+<c:set select="$root" name="patternVersion">1.0</c:set>
+
+<%-- Load the WSDL data --%>
+<% com.ibm.etools.mft.pattern.sv.plugin.PatternUtility.configureWSDL(
+	context, "$root/serviceWSDL", "serviceWSDLData"); %>	
+
+<%-- Build message flow project --%>
+<ws:project name="{$root/@projectname}">
+	<ws:file encoding="UTF-8" path=".project" replace="true" template="sv/sp/ssp/templates/root/project.jet"/>
+	<c:set select="$root" name="error"><c:get select="$root/flowPrefix"/>Error<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="log"><c:get select="$root/flowPrefix"/>Log<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="proxy"><c:get select="$root/flowPrefix"/>Proxy<c:get select="$root/flowSuffix"/></c:set>
+
+	<%-- Main proxy flow --%>
+	<c:set select="$root" name="errorFlow"><c:get select="$root/flowPrefix"/>Error<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="logFlow"><c:get select="$root/flowPrefix"/>Log<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="thisFlow"><c:get select="$root/flowPrefix"/>Proxy<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="thisFlowURI"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+	<c:set select="$root" name="thisFlowPrefix"><c:get select="$root/@brokerSchema1"/><c:get select="$root/@thisFlow"/></c:set>
+	<c:set select="$root" name="thisFlowBundleName"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+	<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}{$root/@thisFlow}.msgflow" replace="true" template="sv/sp/ssp/templates/root/Proxy.msgflow.jet"/>
+	<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}Proxy.esql" replace="true" template="sv/sp/ssp/templates/root/Proxy.esql.jet"/>   
+
+	<%-- Error subflow--%>
+	<c:set select="$root" name="thisFlow"><c:get select="$root/flowPrefix"/>Error<c:get select="$root/flowSuffix"/></c:set>
+	<c:set select="$root" name="thisFlowURI"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+	<c:set select="$root" name="thisFlowPrefix"><c:get select="$root/@brokerSchema1"/><c:get select="$root/@thisFlow"/></c:set>
+	<c:set select="$root" name="thisFlowBundleName"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+	<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}Error.esql" replace="true" template="sv/sp/ssp/templates/root/Error.esql.jet"/>
+	<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}{$root/@thisFlow}.subflow" replace="true" template="sv/sp/ssp/templates/root/Error.subflow.jet"/>
+
+	<%-- Logging subflow--%>
+	<c:if test="$root/loggingRequired = 'true'" >
+		<c:set select="$root" name="thisFlow"><c:get select="$root/flowPrefix"/>Log<c:get select="$root/flowSuffix"/></c:set>
+		<c:set select="$root" name="thisFlowURI"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+		<c:set select="$root" name="thisFlowPrefix"><c:get select="$root/@brokerSchema1"/><c:get select="$root/@thisFlow"/></c:set>
+		<c:set select="$root" name="thisFlowBundleName"><c:get select="$root/@brokerSchema2"/><c:get select="$root/@thisFlow"/></c:set>
+		<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}Log.esql" replace="true" template="sv/sp/ssp/templates/root/Log.esql.jet"/>   
+		<ws:file encoding="UTF-8" path="{$root/@brokerSchema2}{$root/@thisFlow}.subflow" replace="true" template="sv/sp/ssp/templates/root/Log.subflow.jet"/>
+	</c:if>
+</ws:project>
+
+<% com.ibm.etools.mft.pattern.sv.plugin.PatternUtility.getPatternConfigurationFolderName(context, "patternConfigurationFolderName"); %>	
+
+<%-- Build pattern reference project with summary file --%>
+<ws:project name="{$root/instanceName}">
+	<ws:file encoding="UTF-8" template="sv/sp/ssp/templates/root/summary.jet" 
+		path="{$patternConfigurationFolderName}/{$root/instanceName}_summary.html"/>
+	<ws:copyFile src="css/summary.css" srcContext="transform" 
+		target="{$patternConfigurationFolderName}/summary.css"/>
+
+	<ws:folder path="{$patternConfigurationFolderName}/icons">
+		<ws:copyFile src="icons/header-gradient.gif" binary="true"
+			srcContext="transform" target="header-gradient.gif" />
+		<ws:copyFile src="icons/section.gif" binary="true"
+			srcContext="transform" target="section.gif" />
+		<ws:copyFile src="icons/summary-title.gif" binary="true"
+			srcContext="transform" target="summary-title.gif" />
+		<ws:copyFile src="icons/title-gradient.gif" binary="true"
+			srcContext="transform" target="title-gradient.gif" />
+	</ws:folder>			
+</ws:project>

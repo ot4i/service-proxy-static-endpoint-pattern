@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Übersicht über das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1">Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</h1>
+
+<div>
+<p class="shortdesc">Verwenden Sie dieses Muster zur Bereitstellung einer Entkopplung zwischen Web-Service-Requestern und Web-Service-Providern mittels Routing über einen virtuellen Service, der direkt mit dem Zielserviceprovider verbunden ist.</p>
+<p> Verwenden Sie dieses Muster in den folgenden Fällen:</p>
+<ul>
+<li>Wenn der Client nicht direkt auf den Service zugreifen soll, weil sich die Adresse des Endpunkts, auf dem sich der Service befindet, ändern kann oder weil die Adresse verdeckt bleiben soll, um den Zugriff auf den Service steuern zu können</li>
+<li>Um den Zugriff auf den Service über HTTP oder HTTPS zu ermöglichen</li>
+<li>Wenn alle Anforderungen an den Serviceprovider protokolliert werden sollen oder Sie zusätzliche Fehlerbehandlungsfunktionen bereitstellen möchten, ohne den Serviceprovider zu ändern</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">Lösung</h2>
+</div>
+	<p>
+	Die Lösung besteht in der Implementierung eines Nachrichtenflusses, der einen Proxy für
+	den Web-Service-Provider bereitstellt und Protokoll- und Fehlerbehandlungsfunktionen
+	enthalten kann.</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="Diagramm zur Veranschaulichung des Verhaltens dieses Musters. Serviceanforderungen werden an den Endserviceprovider weitergeleitet." />
+</div>
+	<div>
+		<a href="proxy.htm" title="Informationen zur Gestaltung des Proxy-Nachrichtenflusses">Proxy-Nachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informationen zur Gestaltung des untergeordneten Fehlernachrichtenflusses">Untergeordneter Fehlernachrichtenfluss</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informationen zur Gestaltung des untergeordneten Protokollnachrichtenflusses">Untergeordneter Protokollnachrichtenfluss</a>
+	</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">Verwandte Tasks</h2>
+		</div>
+		<p>
+			Im folgenden Abschnitt finden Sie Informationen zur Anwendung und Verwendung dieses Musters.
+		</p>
+		<a href="constraints.htm" title="Vorgaben für die Verwendung des Musters">
+			Vorgaben für die Verwendung des Musters</a>
+	</div>
+	<div>
+		<a href="before.htm" title="Erforderliche Tasks vor der Anwendung des Musters">
+			Erforderliche Tasks vor der Anwendung des Musters</a>
+	</div>
+	<div>
+		<a href="resources.htm" title="Ressourcen für die Aufnahme der Musternutzung">Ressourcen für die Aufnahme der Musternutzung</a>
+	</div>
+	<div>
+		<a href="parameters.htm" title="Parameter für das Muster">
+			Parameter für das Muster</a>
+	</div>
+	<div>
+		<a href="after.htm" title="Erforderliche Tasks nach der Generierung des Musters">
+			Erforderliche Tasks nach der Generierung des Musters</a>
+	</div>
+</div>
+</body>
+</html>

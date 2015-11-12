@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Utilisez le modèle Proxy de service : noeud final statique pour fournir un couplage large entre les demandeurs et fournisseurs de services."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Flux de proxy pour le modèle Proxy de service : noeud final statique</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.proxyflow">
+<div class="section">
+	<h1 class="topictitle1">Flux de proxy pour le modèle <span>Proxy de service : noeud final statique</span></h1>
+	<p class="shortdesc">
+	Informations sur le flux Proxy du modèle <span>Proxy de service : noeud final statique</span>.</p>
+</div>
+
+<p>Le flux SimpleServiceProxy traite toutes les demandes de service de la manière suivante :</p>
+<ol>
+<li>Lorsque le flux de messages reçoit une demande, la demande est validée si la configuration de  l'instance du modèle impose la validation.</li>
+<li>Le flux de messages définit les paramètres nécessaires pour envoyer la demande de service au fournisseur de service cible en utilisant l'URL de fournisseur fournie dans un paramètre du modèle ou dans le fichier archive de courtier (BAR).</li>
+
+<li>La demande SOAP est ensuite envoyée au fournisseur du service. 
+Si une réponse est reçue, elle est renvoyée directement au demandeur de service d'origine. 
+Si un message d'erreur est reçu, l'état du flux est défini pour indiquer qu'une erreur s'est produite et le message d'erreur est retourné au demandeur du service.</li>
+<li>Vous pouvez configurer le modèle pour inclure ou exclure la consignation des demandes et des réponses. 
+ </li>
+<li>Si la consignation est exclue, le flux de messages se termine correctement lorsque la réponse est retournée.</li>
+<li>Le flux de messages contient également un flux secondaire pour traiter les erreurs. 
+</li>
+<li>Les messages d'erreur sont écrits dans la file d'attente des erreurs si vous avez défini cette option pour l'instance du modèle.</li>
+</ol>
+
+
+<p>
+<a href="overview.htm#anchor1" title="Retour">Spécification du modèle Proxy de service : noeud final statique</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Service Proxy: static endpoint 型樣的概觀"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Service Proxy: static endpoint 型樣</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 型樣</h1>
+
+<div>
+<p class="shortdesc">使用此型樣，透過直接連結至目標服務提供者的虛擬服務進行遞送，以提供 Web 服務要求者與 Web 服務提供者之間的取消聯結功能。</p>
+<p> 使用此型樣的時機如下：</p>
+<ul>
+<li>因為服務所在端點的位址可能會變更，或必須將它隱藏以控制服務的存取，所以您不想要使用戶端直接存取服務時</li>
+<li>若要支援透過 HTTP 或 HTTPS 的服務存取</li>
+<li>當您想要提供服務提供者的所有要求記載功能時，或者想要提供其他錯誤處理功能而不想要變更服務提供者時。</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">解決方案</h2>
+</div>
+	<p>
+	解決方案是實作訊息流程，而此訊息流程會提供提供者 Web 服務的 Proxy，也可以包括記載及錯誤處理功能。</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="顯示型樣行為的圖表。服務要求會轉遞至結束服務提供者。" />
+</div>
+	<div>
+		<a href="proxy.htm" title="Proxy 訊息流程的相關設計資訊。">Proxy 流程</a></div>
+	<div>
+		<a href="errorflow.htm" title="「錯誤」子流程的相關設計資訊。">錯誤子流程</a></div>
+	<div>
+		<a href="logflow.htm" title="「日誌」子流程的相關設計資訊。">日誌子流程</a></div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">相關作業</h2>
+		</div>
+		<p>
+			如需如何套用及使用此型樣的相關資訊，請閱讀下節。</p>
+		<a href="constraints.htm" title="使用型樣的限制">使用型樣的限制</a></div>
+	<div>
+		<a href="before.htm" title="套用型樣之前要完成的作業">套用型樣之前要完成的作業</a></div>
+	<div>
+		<a href="resources.htm" title="可讓您開始使用型樣的資源">可讓您開始使用型樣的資源</a></div>
+	<div>
+		<a href="parameters.htm" title="型樣的參數">型樣的參數</a></div>
+	<div>
+		<a href="after.htm" title="產生型樣之後要完成的作業">產生型樣之後要完成的作業</a></div>
+</div>
+</body>
+</html>

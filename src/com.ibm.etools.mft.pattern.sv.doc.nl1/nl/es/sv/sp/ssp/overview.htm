@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Visión general del patrón Proxy de servicio: punto final estático"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Patrón Proxy de servicio: punto final estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1">Patrón <span>Proxy de servicio: punto final estático</span></h1>
+
+<div>
+<p class="shortdesc">Utilice este patrón para proporcionar desacoplamiento entre solicitantes de servicio web y proveedores de servicio web direccionándolo a través de un servicio virtual enlazado directamente al proveedor de servicio de destino.</p>
+<p> Utilice este patrón:</p>
+<ul>
+<li>Cuando no desee que el cliente acceda al servicio directamente, porque la dirección del punto final en el que está ubicado el servicio puede cambiar o porque debe estar oculto para controlar el acceso al servicio</li>
+<li>Para dar soporte al acceso al servicio a través de HTTP o HTTPS</li>
+<li>Cuando se desea proporcionar registro de todas las solicitudes al proveedor de servicio, o cuando se desea proporcionar prestaciones adicionales de manejo de errores sin realizar cambios en el proveedor de servicio</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">Solución</h2>
+</div>
+	<p>
+	La solución es implementar un flujo de mensajes que proporcione un proxy para el servicio web de proveedor, y también puede incluir prestaciones de registro y manejo de errores.</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="Un diagrama que muestra el comportamiento del patrón. Las solicitudes de servicio se reenvían al proveedor de servicio final." />
+</div>
+	<div>
+		<a href="proxy.htm" title="Información de diseño sobre el flujo de mensajes Proxy.">Flujo Proxy</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Información de diseño sobre el subflujo Error.">Subflujo Error</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Información de diseño sobre el subflujo Log.">Subflujo Log</a>
+	</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">Tareas relacionadas</h2>
+		</div>
+		<p>
+			Consulte la sección siguiente para obtener información sobre cómo aplicar y utilizar este patrón.
+		</p>
+		<a href="constraints.htm" title="Restricciones en el uso del patrón">
+			 Restricciones en el uso del patrón</a>
+	</div>
+	<div>
+		<a href="before.htm" title="Tareas que deben completarse antes de aplicar el patrón">Tareas que deben completarse antes de aplicar el patrón</a>
+	</div>
+	<div>
+		<a href="resources.htm" title="Recursos para que pueda familiarizarse con el patrón">Recursos para que pueda familiarizarse con el patrón</a>
+	</div>
+	<div>
+		<a href="parameters.htm" title="Parámetros para el patrón">
+			Parámetros para el patrón</a>
+	</div>
+	<div>
+		<a href="after.htm" title="Tareas que deben completarse después de generar el patrón"> 			Tareas que deben completarse después de generar el patrón</a>
+	</div>
+</div>
+</body>
+</html>

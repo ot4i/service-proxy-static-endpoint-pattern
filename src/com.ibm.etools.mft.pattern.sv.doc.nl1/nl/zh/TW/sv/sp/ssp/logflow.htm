@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 型樣，可以提供服務要求者與服務提供者之間的鬆散聯結。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 型樣的日誌子流程</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 型樣的日誌子流程</h1>
+	<p class="shortdesc">
+	啟用記載時，「日誌」子流程會根據使用者定義的內容 <span class="msobjprop">RequestLoggingOn</span> 及 <span class="msobjprop">ResponseLoggingOn</span>，來記載要求及回覆。</p>
+	<p>
+	日誌訊息會以持續 WebSphere MQ 訊息形式寫入 WebSphere MQ 佇列。會根據組織內的標準實務，個別處理這些日誌訊息。訊息日誌會在 MQRFH2 標頭中包含原始訊息及下列資訊：
+</p>
+	<ul>
+		<li>
+			時間戳記</li>
+		<li>
+			分配管理系統名稱</li>
+		<li>
+			訊息流程名稱</li>
+		<li>
+			服務明細</li>
+		<li>
+			狀態（1 = 要求、2 = 回覆、-2 = 錯誤）</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Proxy: static endpoint 型樣規格</a></body>
+</html>

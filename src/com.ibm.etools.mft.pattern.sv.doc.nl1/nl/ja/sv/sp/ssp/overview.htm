@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンの概要"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>「サービス・プロキシー: 静的エンドポイント」パターン</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターン</h1>
+
+<div>
+<p class="shortdesc">このパターンを使用して、Web サービス要求元と Web サービス・プロバイダーを分離します。これは、ターゲット・サービス・プロバイダーに直接バインドされる仮想サービスを介したルーティングによって実現されます。
+</p>
+<p> 以下のような場合に、このパターンを使用します。</p>
+<ul>
+<li>サービスが配置されているエンドポイントのアドレスが変わる可能性があるために、あるいはサービスへのアクセスを制御する目的でそれを隠蔽する必要があるために、クライアントがサービスへ直接アクセスしないようにする場合
+</li>
+<li>HTTP または HTTPS を介したサービス・アクセスをサポートする場合</li>
+<li>サービス・プロバイダーに対するすべての要求のロギングを行う場合、あるいはサービス・プロバイダーに変更を加えることなくエラー処理機能を追加する場合
+</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">ソリューション</h2>
+</div>
+	<p>
+ソリューションは、プロバイダー Web サービスのプロキシーを提供するメッセージ・フローを実装することです。ロギング機能およびエラー処理機能も組み込むことができます。
+</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="パターンの動作を示す図。サービス要求がエンド・サービス・プロバイダーに転送されます。" /><!-- TCT MBR70 #59 -->
+</div>
+	<div>
+		<a href="proxy.htm" title="プロキシー・メッセージ・フローに関する設計情報。">プロキシー・フロー</a>
+</div>
+	<div>
+		<a href="errorflow.htm" title="エラー・サブフローに関する設計情報。">エラー・サブフロー
+</a>
+</div>
+	<div>
+		<a href="logflow.htm" title="ログ・サブフローに関する設計情報。">ログ・サブフロー
+</a>
+</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">関連タスク</h2>
+		</div>
+		<p>
+このパターンの適用と使用の方法については、以下のセクションをお読みください。</p>
+			<a href="constraints.htm" title="パターンの使用に関する制約">パターンの使用に関する制約</a>
+</div>
+	<div>
+		<a href="before.htm" title="パターンを適用する前に完了するタスク">パターンを適用する前に完了するタスク</a>
+	</div>
+	<div>
+			<a href="resources.htm" title="パターンを開始するためのリソース">パターンを開始するためのリソース</a>
+		</div>
+	<div>
+		<a href="parameters.htm" title="パターンのパラメーター">パターンのパラメーター</a>
+</div>
+	<div>
+		<a href="after.htm" title="パターンを生成した後に完了するタスク">パターンを生成した後に完了するタスク</a>
+	</div>
+</div>
+</body>
+</html>

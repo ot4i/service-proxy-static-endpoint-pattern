@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="您可以使用 Service Proxy 模式，通过为服务引入额外的间接级别，在服务请求者与服务提供者之间确立最大的独立性。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Service Proxy 模式</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1"><span>Service Proxy</span> 模式</h1>
+<div>
+<p class="shortdesc">使用此模式，通过为服务引入额外的间接级别，在服务请求者与服务提供者之间确立最大的独立性。</p>
+<p>在 Service Proxy 模式的最基本形式中，服务实现的真实位置被隐藏。在为访问控制、请求跟踪和审计提供管理点时，此模式也会特别有用。</p>
+<div class="image"><img src="./serviceproxy.gif" alt="服务代理体系结构图"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">上下文</a></h2>
+<p>客户机必须调用服务上的操作。客户机不得直接访问服务，因为服务所在的端点的地址可能会更改，实际的端点地址也有可能会更改。实际的端点地址被隐藏，这样就可以控制对服务的访问。</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">问题</a></h2>
+<p>如何以可控方式向客户机提供服务，同时不显示服务所在的端点的实际地址。</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">选择指导信息</a></h2>
+<p>在以下情况下使用此模式：</p>
+<ul>
+	<li>必须通过控制点提供对服务的访问，同时不向客户机显示服务的实际位置（端点地址）。</li>
+	<li>在每次激活此服务时，必须应用某种形式的控制（访问管理、授权、审计或记录）。</li>
+</ul>
+<p>当服务显示在组织或部门边界之外时，必须考虑安全性、审计跟踪维护、可靠性、服务质量和通信兼容性等问题。</p>
+<p>最好保持服务部署的灵活性。例如，通过使服务端点的地址看似没有更改，实现将服务移至其他服务器而不影响该服务的任何客户机。</p>
+<p>服务支持的协议绑定对于特定的客户机组可能并不合适。对此，一个解决方案是修改服务，使之支持所需的协议；但是在许多情况下，这个解决方案可能并不理想或者不可行。</p>
+<p>您应当隐藏服务的真实位置，以便所有的客户机都通过某个特定的控制点对其进行间接访问。通过隐藏服务的真实位置，可以添加审计功能或其他客户机认证检查。</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">解决方案</a></h2>
+
+<p>通过部署实现同一接口的企业服务总线 (ESB) 调解来隐藏目标服务。此调解会充当虚拟服务或代理，以将所有请求重定向到真实的服务提供者。客户机只会看到虚拟服务，它对客户机而言就如同服务的真实提供者。</p>
+
+<p>在某些情况下，虚拟服务支持的一组协议绑定可能会不同于真实服务所支持的绑定，因此虚拟服务将提供必需的协议转换做为调解的一部分。
+</p>
+<p>
+
+在最简单的调解形式中，调解会将每个请求重定向到预配置的端点地址。另一种更为灵活的方法是使用对服务注册表的查询来确定实际地址，对此值进行高速缓存以用于后续请求。</p>
+
+<p>虚拟服务或调解会实现多项其他的功能。在通常的实现中，调解会记录用于审计用途的每个请求。虚拟服务可能还会提供额外的访问控制级别，检查与每个入局请求相关联的凭证。更为成熟的实现可能还会提供不同安全域之间的身份映射。</p>
+
+
+</div>
+</body>
+</html>

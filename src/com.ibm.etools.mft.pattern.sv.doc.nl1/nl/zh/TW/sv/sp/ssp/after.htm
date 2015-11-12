@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="產生 Service Proxy: static endpoint 型樣之後要完成的作業。"/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>產生 Service Proxy: static endpoint 型樣之後要完成的作業</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.after">
+	<h1 class="topictitle1">產生 <span>Service Proxy: static endpoint</span> 型樣之後要完成的作業</h1>
+	<p class="shortdesc">在您產生此型樣之後必須完成的作業。</p>
+<ol>
+<li>建立分配管理系統保存檔 (BAR)。將產生的訊息流程新增至 BAR 檔。
+在「分配管理系統保存檔」編輯器中，您必須先選取<span class="uicontrol">編譯及行內資源</span>選項，然後再建置 BAR 檔。
+</li>
+<li>配置分配管理系統保存檔。在您部署 <span>Service Proxy: static endpoint</span> 型樣實例的訊息流程之前，並不需要進一步配置分配管理系統保存檔中的訊息流程，但是您可能會想要檢閱一些預設選項，以及配置環境的變更。
+<p>在<span class="uicontrol">分配管理系統保存檔</span>編輯器的<span class="uicontrol">管理</span>頁面中，可執行下列動作：</p>
+<ul>
+	<li>選用項目：使用 <span class="msobjprop">RequestLoggingOn</span> 使用者定義的內容，以選取是要開啟還是關閉訊息流程的記載要求。</li>
+	<li>選用項目：使用 <span class="msobjprop">ResponseLoggingOn</span> 使用者定義的內容，以選取是要開啟還是關閉訊息流程的記載回覆。</li>
+	<li>選用項目：使用 <span class="msobjprop">ErrorLoggingOn</span> 使用者定義的內容，以選取是否產生錯誤訊息。</li>
+	<li>選用項目：您也可以變更分配管理系統保存檔中的任何可配置內容，例如，安全內容或建立其他實例的內容。您必須確保所變更的任何值不會影響型樣實例的行為。</li>
+	<li>如果 WSDL 檔案中定義的傳輸是 HTTPS，則需要其他 SSL 配置，請參閱 IBM Integration 說明文件中的「實作 SSL 鑑別」。</li>
+</ul></li>
+<li>建立佇列。當您套用型樣時，會產生具有佇列名稱及佇列管理程式名稱的 WebSphere MQ 佇列清單，如果這些 WebSphere MQ 佇列尚未存在，則必須加以建立。此型樣需要的所有訊息設定都是明確設定於訊息上，而且與佇列設定無關。</li>
+<li>在摘要檔中，檢視您必須建立的佇列清單。摘要檔位於 <i>InstanceName</i> 型樣實例專案的「型樣配置」資料夾中。</li>
+<li>建立 <span>WebSphere MQ</span> 資源。您可以在指令行上使用程式及公用程式（例如 <span class="cmdname">runmqsc</span>），或使用「<span>WebSphere MQ</span> 探險家」圖形介面，以建立 <span>WebSphere MQ</span> 資源。
+如需建立 <span>WebSphere MQ</span> 資源的相關資訊，請參閱位於 <img src="../../../images/external_link.gif" alt="此鏈結將在新視窗中開啟" class="external_link" /><a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ Library</a> 網頁上的 <span>WebSphere MQ</span> Intercommunication。</li>
+<li>部署 BAR 檔案。必須使用相同或不同的 BAR 檔案，部署含有可部署 WSDL 的訊息集。
+<p>Proxy 服務的位址是在部署之後判定，然後發佈給要求者。使用 <span class="cmdname">mqsireportproperties</span> 指令可以取得此資訊，以判斷執行群組的 HTTPCOnnector 內容。</p></li>
+</ol>
+	<p>
+		<a href="overview.htm#anchorBack" title="上一步">回到 Service Proxy: static endpoint 型樣規格</a>
+</p>
+</body>
+</html>

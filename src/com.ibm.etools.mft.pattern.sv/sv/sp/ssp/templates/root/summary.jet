@@ -1,0 +1,157 @@
+<%
+com.ibm.etools.mft.pattern.sv.plugin.PatternPlugin pattern = com.ibm.etools.mft.pattern.sv.plugin.PatternPlugin.getInstance();
+com.ibm.etools.mft.pattern.sv.sp.ssp.PatternMessages messages = new com.ibm.etools.mft.pattern.sv.sp.ssp.PatternMessages();
+%>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title><c:get select="$root/instanceName"/>_summary.html</title>
+	<link rel="stylesheet" href="summary.css" media="screen">
+</head>
+
+<script type="text/javascript">
+	function setStatus(txt){
+		window.status = txt;
+		window.status = "";
+	}
+</script>
+
+<body>
+<a name="NoPlace"></a>
+
+<div id="banner">
+	<h2><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.35", new Object[] { "$root/instanceName" }) %></h2>
+	<p><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.1", new Object[] { "$root/instanceName" }) %></p>
+</div>	
+
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.2") %></h2>
+	</div>
+	<div class="content">
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.3") %>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.4") %>
+		</p>
+		<p>
+			<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.5", new Object[] { "$root/@projectname" }) %>
+		</p>
+		<ul>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@proxy"/>.msgflow')">
+					<c:get select="$root/@proxy"/>
+				</a>
+			</li>
+		</ul>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.6") %>
+		</p>
+		<ul>
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@error"/>.subflow')">
+					<c:get select="$root/@error"/>
+				</a>
+			</li>
+			<c:if test="$root/loggingRequired='true'">
+			<li>
+				<a href="#NoPlace" onclick="setStatus('/<c:get select="$root/instanceName"/>_Flows/<c:get select = "$root/@brokerSchema2"/><c:get select="$root/@log"/>.subflow')">
+					<c:get select="$root/@log"/>
+				</a>
+			</li>
+			</c:if>
+		</ul>
+	</div>
+</div>
+		
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.7", new Object[] { "$root/instanceName" }) %></h2>
+	</div>
+	<div class="content">
+		<h3><%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.8") %></h3>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.9") %>
+		</p>
+		<ul>
+			<c:if test="$root/errorMessageRequired='true'">
+				<li>
+					<c:choose>
+						<c:when test="string-length($root/errorQueueManager) > 0">
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.14.queueManager", new Object[] { "$root/queuePrefix", "$root/errorQueue", "$root/queueSuffix", "$root/errorQueueManager" }) %>
+						</c:when>
+						<c:otherwise>
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.14", new Object[] { "$root/queuePrefix", "$root/errorQueue", "$root/queueSuffix", "$root/errorQueueManager" }) %>
+						</c:otherwise>
+					</c:choose>
+				</li>
+			</c:if>
+			<c:if test="$root/loggingRequired='true'">
+				<li>
+					<c:choose>
+						<c:when test="string-length($root/logQueueManager) > 0">
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.15.queueManager", new Object[] { "$root/queuePrefix", "$root/logQueue", "$root/queueSuffix", "$root/logQueueManager" }) %> 
+						</c:when>
+						<c:otherwise>
+							<%= pattern.getMessage(context, "com.ibm.etools.mft.pattern.sv.sp.ssp.summary.15", new Object[] { "$root/queuePrefix", "$root/logQueue", "$root/queueSuffix" }) %> 
+						</c:otherwise>
+					</c:choose>
+				</li>
+			</c:if>
+		</ul>
+		<h3><%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.22") %></h3>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.32") %>
+		</p>
+	</div>
+</div>
+
+<div class="section">
+	<div class="tl">
+		<h2><%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.25") %></h2>
+	</div>
+	<div class="content">
+		<c:choose>
+			<c:when test="$root/loggingRequired='true'">
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.26") %>
+				</p>
+				<br>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.27") %> 
+				</p>
+			</c:when>
+			<c:otherwise>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.28") %>
+				</p>
+			</c:otherwise>
+		</c:choose>		
+		<br>
+		<c:choose>
+			<c:when test="$root/errorMessageRequired='true'">
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.29") %>
+				</p>
+				<br>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.30") %>
+				</p>
+			</c:when>
+			<c:otherwise>
+				<p>
+					<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.31") %>
+				</p>
+			</c:otherwise>
+		</c:choose>		
+		<br>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.33") %>
+		</p>		
+		<br>
+		<p>
+			<%= pattern.getString("com.ibm.etools.mft.pattern.sv.sp.ssp.summary.34") %>
+		</p>
+	</div>
+</div>
+</body>
+</html>

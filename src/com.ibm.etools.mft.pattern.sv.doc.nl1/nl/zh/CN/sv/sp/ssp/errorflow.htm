@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 模式可在服务请求者与服务提供者之间提供松耦合。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 模式的错误子流</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 模式的错误子流</h1>
+</div>
+<p class="shortdesc">如果在消息流处理期间捕获到错误，那么将调用错误子流并将错误响应返回到客户机，表明未成功完成请求。</p> 
+<p>如果将模式实例配置为启用错误消息，那么会在错误队列中写入一条消息。错误子流执行以下操作：</p>
+<ol>
+<li>错误子流将构建 SOAP 故障消息，并将其返回至服务请求者以表明请求未成功。SOAP 故障包括导致消息流失败的异常的详细信息。</li>
+<li>如果已配置模式参数包含错误消息，并且选择了用户定义的属性 <span class="msobjprop">ErrorLoggingOn</span>，那么会准备错误消息并将其写入错误队列。
+<p>写入的异常详细信息将作为 XML 消息。这些详细信息包括：</p>
+	<ul>
+	<li>代理名称</li>
+	<li>流名称</li>
+	<li>时间戳记</li>
+	<li>状态码：<ul>
+		<li>1（已转发请求时）</li>
+		<li>2（如果提供者已应答）</li>
+		<li>-2（如果提供者返回故障）</li>
+		</ul></li>
+	<li>服务名称</li>
+	<li>服务名称空间</li>
+	<li>端口</li>
+	<li>端口类型</li>
+	<li>操作</li>
+	<li>目标端点</li>
+	<li>异常数据的摘要</li>
+	</ul>
+	<p>异常数据的摘要包含消息流标签、错误号、文本描述和提供进一步详细信息的插入列表。</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="返回">返回至 Service Proxy: static endpoint 模式</a>
+</body>
+</html>

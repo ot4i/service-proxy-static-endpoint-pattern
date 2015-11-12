@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Utilice el patrón Proxy de servicio: punto final estático para proporcionar acoplamiento abierto entre solicitantes de servicios y proveedores de servicios."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Subflujo Log para el patrón Proxy de servicio: punto final estático</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">Subflujo Log para el patrón <span>Proxy de servicio: punto final estático</span></h1>
+	<p class="shortdesc">
+	Cuando el registro está habilitado, el subflujo Log registra solicitudes y respuestas, según las propiedades definidas por el usuario: <span class="msobjprop">RequestLoggingOn</span> y <span class="msobjprop">ResponseLoggingOn</span>. 
+	</p>
+	<p>
+	Los mensajes de registro se escriben como mensajes persistentes de WebSphere MQ en una cola de WebSphere MQ. 
+	Estos mensajes de registro se procesan por separado de acuerdo a las prácticas estándar de su organización. 
+	El registro de mensajes contiene el mensaje original y la siguiente información en una cabecera MQRFH2:
+	</p>
+	<ul>
+		<li>
+			Indicación horaria
+		</li>
+		<li>
+			Nombre del intermediario
+		</li>
+		<li>
+			Nombre del flujo de mensajes
+		</li>
+		<li>
+			Detalles del servicio
+		</li>
+		<li>
+			Estado (1 = solicitud, 2 = respuesta, -2 = error)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="Volver">Volver a la especificación del patrón Proxy de servicio: punto final estático</a>
+</body>
+</html>

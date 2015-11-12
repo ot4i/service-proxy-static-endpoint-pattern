@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Utilisez le modèle Proxy de service : noeud final statique pour fournir un couplage large entre les demandeurs et fournisseurs de services."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Flux secondaire Erreur pour le modèle Proxy de service : noeud final statique</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Flux secondaire Erreur pour le modèle <span>Proxy de service : noeud final statique</span></h1>
+</div>
+<p class="shortdesc">Si des erreurs sont interceptées au cours du traitement du flux de messages, le flux secondaire Erreur est appelé et un message d'erreur est envoyé au client pour indiquer que la demande n'a pas abouti.</p> 
+<p>Si vous configurez l'instance du modèle pour activer les messages d'erreur, un message est écrit dans la file d'attente des erreurs. Le flux secondaire Erreur exécute les actions suivantes :</p>
+<ol>
+<li>Il crée un message d'erreur SOAP qui est envoyé au demandeur de service pour indiquer que la demande n'a pas abouti. L'erreur SOAP non spécifiée inclut les détails de l'exception qui a provoqué l'échec du flux de messages.</li>
+<li>Si vous avez configuré les paramètres du modèle pour inclure des messages d'erreur et que la propriété définie par l'utilisateur,
+	<span class="msobjprop">ErrorLoggingOn</span> est sélectionnée, un message d'erreur est rédigé et s'affiche dans la file d'attente des erreurs.
+<p>Les détails de l'exception sont écrits sous forme de message XML. Ces détails comprennent :</p>
+	<ul>
+	<li>Nom du courtier</li>
+	<li>Nom du flux</li>
+	<li>Horodatage</li>
+	<li>Code d'état :
+		<ul>
+		<li>1 (lorsque la demande a été transmise)</li>
+		<li>2 (si le fournisseur a répondu)</li>
+		<li>-2 (si le fournisseur renvoie une erreur)</li>
+		</ul></li>
+	<li>Nom de service</li>
+	<li>Espace de nom de service</li>
+	<li>Port</li>
+	<li>Type de port</li>
+	<li>Opération</li>
+	<li>Noeud final cible</li>
+	<li>Récapitulatif des données de l'exception</li>
+	</ul>
+	<p>Le récapitulatif des données d'exception contient le libellé du flux de messages, le numéro d'erreur, la description de texte, ainsi qu'une liste d'insertions donnant plus de détails.</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="Retour">Modèle Proxy de service : noeud final statique</a>
+</body>
+</html>

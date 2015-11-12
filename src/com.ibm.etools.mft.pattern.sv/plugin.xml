@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+    <extension point="org.eclipse.jet.transform">
+        <transform startTemplate="templates/main.jet" templateLoaderClass="org.eclipse.jet.compiled._jet_transformation">
+            <description>%Plugin.description</description>
+            <tagLibraries>
+                <importLibrary autoImport="true" id="org.eclipse.jet.controlTags" usePrefix="c"/>
+                <importLibrary autoImport="true" id="org.eclipse.jet.javaTags" usePrefix="java"/>
+                <importLibrary autoImport="true" id="org.eclipse.jet.formatTags" usePrefix="f"/>
+                <importLibrary autoImport="false" id="org.eclipse.jet.workspaceTags" usePrefix="ws"/>
+            </tagLibraries>
+        </transform>
+    </extension>
+    <extension point="com.ibm.etools.patterns.Pattern">
+        <resourceloader class="com.ibm.etools.mft.pattern.sv.sp.ssp.PatternMessages" id="com.ibm.etools.mft.pattern.sv.sp.ssp"/>
+        <pattern doc="com.ibm.etools.mft.pattern.sv.doc/sv/sp/ssp/overview.htm"
+            id="com.ibm.etools.mft.pattern.sv.sp.ssp" name="%com.ibm.etools.mft.pattern.sv.sp.ssp.displayName"
+            parentPatternId="com.ibm.etools.mft.pattern.sv.sp" povMetaXML="sv/sp/ssp/paramsmeta.xml"
+            povSchema="sv/sp/ssp/params.xsd" povdoc="com.ibm.etools.mft.pattern.sv.doc/sv/sp/ssp/parameters.htm"
+            productId="com.ibm.etools.msgbroker.tooling.ide" resourceLoaderId="com.ibm.etools.mft.pattern.sv.sp.ssp" transformId="com.ibm.etools.mft.pattern.sv"/>
+        <pattern doc="com.ibm.etools.mft.pattern.sv.doc/sv/wmb_patterns_sv.htm" id="com.ibm.etools.mft.pattern.sv"
+            name="%com.ibm.etools.mft.pattern.sv.displayName" parentPatternId="com.ibm.etools.mft.patterns" productId="com.ibm.etools.msgbroker.tooling.ide"/>
+        <pattern doc="com.ibm.etools.mft.pattern.sv.doc/sv/sp/overview.htm" id="com.ibm.etools.mft.pattern.sv.sp"
+            name="%com.ibm.etools.mft.pattern.sv.sp.displayName" parentPatternId="com.ibm.etools.mft.pattern.sv" productId="com.ibm.etools.msgbroker.tooling.ide"/>
+    </extension>
+   	<extension point="org.eclipse.wst.xml.core.catalogContributions">
+		<catalogContribution id="default">
+	   		<public publicId="com.ibm.etools.mft.pattern.sv.sp.ssp"	uri="sv/sp/ssp/params.xsd"/>
+	   	</catalogContribution>
+   	</extension>
+</plugin>

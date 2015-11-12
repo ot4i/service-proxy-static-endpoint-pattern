@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="fr-fr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009" />
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009" />
+	<meta name="abstract" content="Présentation du modèle Proxy de service : noeud final statique"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>Modèle Proxy de Service : noeud final statique</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript">
+	</script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp">
+<h1 class="topictitle1">Modèle <span>Proxy de Service : noeud final statique</span></h1>
+
+<div>
+<p class="shortdesc">Utilisez ce modèle pour fournir un découplage entre les demandeurs de services Web et les fournisseurs de services Web en passant par un service virtuel directement lié au fournisseur de service cible.</p>
+<p> Utilisez ce modèle :</p>
+<ul>
+<li>Lorsque le client ne doit pas accéder au service directement parce que l'adresse du noeud final où se trouve le service peut changer ou parce qu'elle doit être masquée pour contrôler l'accès au service.</li>
+<li>Pour prendre en charge l'accès au service sur HTTP ou HTTPS</li>
+<li>Lorsque vous voulez fournir la consignation pour toutes les demandes envoyées au fournisseur de service ou des fonctions supplémentaires de gestion des erreurs sans changer le fournisseur de service.</li>
+
+</ul>
+
+
+</div>
+<div class="section">
+	<h2 class="sectiontitle">Solution</h2>
+</div>
+	<p>
+	La solution consiste à implémenter un flux de messages qui fournit un proxy pour le service Web du fournisseur et qui peut également inclure des fonctions de consignation et de gestion des erreurs.</p>
+<div class="image">
+	<img src="simpleserviceproxy.gif"
+		alt="Diagramme montrant le comportement du modèle. Les demandes de service sont envoyées au fournisseur de service final." />
+</div>
+	<div>
+		<a href="proxy.htm" title="Informations de conception sur le flux de messages	Proxy.">Flux Proxy</a>
+	</div>
+	<div>
+		<a href="errorflow.htm" title="Informations de conception sur le flux secondaire Erreur.">Flux secondaire Erreur</a>
+	</div>
+	<div>
+		<a href="logflow.htm" title="Informations de conception sur le flux secondaire Journal.">Flux secondaire Journal</a>
+	</div>
+
+<div>
+	<div class="familylinks">
+		<a name="anchorBack"></a>
+		<div class="section">
+			<h2 class="sectiontitle">Tâches connexes</h2>
+		</div>
+		<p>
+			Lisez la section suivante qui contient des informations sur l'application et l'utilisation de ce modèle.
+		</p>
+		<a href="constraints.htm" title="Contraintes d'utilisation du modèle"> 			Contraintes d'utilisation du modèle</a>
+	</div>
+	<div>
+		<a href="before.htm" title="Tâches à exécuter avant d'appliquer le modèle"> 			Tâches à exécuter avant d'appliquer le modèle</a>
+	</div>
+	<div>
+		<a href="resources.htm" title="Ressources nécessaires pour commencer avec le modèle"> Ressources nécessaires pour commencer avec le modèle</a>
+	</div>
+	<div>
+		<a href="parameters.htm" title="Paramètres du modèle">
+			Paramètres du modèle</a>
+	</div>
+	<div>
+		<a href="after.htm" title="Tâches à exécuter après avoir généré le modèle"> 			Tâches à exécuter après avoir généré le modèle</a>
+	</div>
+</div>
+</body>
+</html>

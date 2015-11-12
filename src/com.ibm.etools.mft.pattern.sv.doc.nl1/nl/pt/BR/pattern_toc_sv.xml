@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS  TYPE="org.eclipse.help.toc"?>
+<toc link_to="toc.xml#wmb_patterns_sv" label="Service Proxy" topic="sv/sp/overview.htm">
+    <topic label="Service Proxy" href="sv/sp/overview.htm">
+      	<topic label="Terminal Estático" href="sv/sp/ssp/overview.htm">
+      		<topic label="Fluxo do Proxy" href="sv/sp/ssp/proxy.htm"/>
+      		<topic label="Subfluxo de Erro" href="sv/sp/ssp/errorflow.htm"/>
+      		<topic label="Subfluxo de Log" href="sv/sp/ssp/logflow.htm"/>
+      		<topic label="Restrições" href="sv/sp/ssp/constraints.htm"/>
+      		<topic label="Tarefas para concluir antes de aplicar o padrão" href="sv/sp/ssp/before.htm"/>
+      		<topic label="Recursoss para introduzí-lo no padrão" href="sv/sp/ssp/resources.htm"/>
+      		<topic label="Parâmetros" href="sv/sp/ssp/parameters.htm"/>
+      		<topic label="Tarefas a concluir após gerar o padrão" href="sv/sp/ssp/after.htm"/>
+      	</topic>
+    </topic>
+</toc>

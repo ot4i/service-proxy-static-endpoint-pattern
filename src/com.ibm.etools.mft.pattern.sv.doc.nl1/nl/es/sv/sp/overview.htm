@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Puede utilizar el patrón Proxy de servicio para proporcionar desacoplamiento máximo entre solicitantes de servicio y proveedores de servicio al introducir un nivel adicional de indirección al servicio."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Patrón Proxy de servicio</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1">Patrón <span>Proxy de servicio</span></h1>
+<div>
+<p class="shortdesc">Utilice este patrón para proporcionar desacoplamiento máximo entre solicitantes de servicio y proveedores de servicio al introducir un nivel adicional de indirección al servicio.</p>
+<p>En su forma más básica, el patrón Proxy de servicio oculta la ubicación verdadera de una implementación de servicio. 
+El patrón también tiene un valor particular al proporcionar un punto de gestión para el control de acceso, seguimiento de solicitudes y auditoría.</p>
+<div class="image"><img src="./serviceproxy.gif" alt="Diagrama de la arquitectura de proxy de servicio"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">El contexto </a></h2>
+<p>El cliente debe llamar a una operación en un servicio. El cliente no debe acceder al servicio directamente, porque la dirección del punto final en la que el servicio se encuentra puede cambiar o la dirección de punto final real puede cambiar. La dirección de punto final real está oculta para que el acceso al servicio no se pueda controlar.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">El problema </a></h2>
+<p>Cómo hacer los servicios disponibles para los clientes en una forma controlada sin exponer la dirección del punto final real en el que está ubicado el servicio.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">Orientación sobre la selección</a></h2>
+<p>Utilice este patrón cuando:</p>
+<ul>
+	<li>El acceso a un servicio debe proporcionarse a través de un punto de control, sin exponer la ubicación real (dirección de punto final) del servicio a los clientes.</li>
+	<li>Debe aplicarse alguna forma de control (gestión de acceso, autorización, auditoría o registro) cada vez que este servicio esté activado.</li>
+</ul>
+<p>Cuando los servicios están expuestos más allá de los límites organizativos o departamentales, es preciso tener en cuenta cuestiones como la seguridad, mantenimiento de seguimientos de auditoría, fiabilidad, calidad de servicio y compatibilidad de comunicaciones.</p>
+<p>Es deseable mantener la flexibilidad del servicio de despliegue. Por ejemplo, se puede mover el servicio a un servidor diferente sin que ello influya en ninguno de los clientes de ese servicio.</p>
+<p>Es posible que los enlaces de protocolo que están soportados por el servicio no sean adecuados para un conjunto específico de clientes. Una solución es modificar el servicio para que soporte los protocolos necesarios, pero en muchos casos esta solución puede no ser deseable o posible.</p>
+<p>Tal vez prefiera ocultar la ubicación verdadera del servicio para que todos los clientes deben acceder al mismo indirectamente a través de un punto de control específico. Ocultar la ubicación verdadera del servicio permite añadir prestaciones de auditoría o comprobaciones de autenticación de clientes adicionales.</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">La solución</a></h2>
+
+<p>El servicio de destino se oculta al desplegar una mediación de bus de servicio empresarial (ESB) que implemente la misma interfaz. 
+Esta mediación actúa como un servicio virtual, o proxy, que redirige todas las solicitudes al proveedor de servicio real. Los clientes sólo ven el servicio virtual, que parece ser el proveedor real del servicio.</p>
+
+<p>En algunos casos el servicio virtual puede dar soporte a un conjunto de enlaces de protocolo diferentes de los enlaces que están soportados por el servicio real, por lo que la conversión de protocolo necesaria se proporciona como parte de la mediación.</p>
+<p>
+
+En su forma más simple, la mediación redirige cada solicitud a una dirección de punto final preconfigurada. 
+Un enfoque más flexible utiliza una consulta a un registro de servicio para determinar la dirección real, almacenando en la memoria caché este valor para utilizarlo con solicitudes posteriores.</p>
+
+<p>El servicio virtual, o mediación, implementa varias características adicionales. En una implementación típica, la mediación registra cada solicitud para fines de auditoría. El servicio virtual también puede proporcionar un nivel adicional de control de acceso, al comprobar las credenciales asociadas con cada solicitud entrante. 
+Una implementación más sofisticada también puede proporcionar una correlación de identidad entre dominios de seguridad diferentes.</p>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="서비스 프록시 패턴을 사용하면 서비스에 대한 추가 레벨의 간접 조치를 도입하여 서비스 요청자와 서비스 제공자 사이에서 최대 디커플링을 제공할 수 있습니다."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>서비스 프록시 패턴</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1"><span>서비스 프록시</span> 패턴</h1>
+<div>
+<p class="shortdesc">이 패턴을 사용하면 서비스에 대한 추가 레벨의 간접 조치를 도입하여
+서비스 요청자와 서비스 제공자 간 최대 디커플링을 제공할 수 있습니다. </p>
+<p>기본 형식에서는 서비스 프록시 패턴이 서비스 구현의 실제 위치를 숨깁니다.
+해당 패턴은 액세스 제어, 요청 추적 및 감사를 수행하는 관리 지점을 제공하는
+측면에서도 특별한 가치를 제공합니다.</p>
+<div class="image"><img src="./serviceproxy.gif" alt="서비스 프록시 아키텍처의 다이어그램"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">컨텍스트</a></h2>
+<p>클라이언트가 서비스에서 조작을 호출해야 합니다. 클라이언트는 서비스에 직접 액세스하지 않아야 합니다.
+서비스가 위치하는 엔드 포인트의 주소가 변경되거나 실제 엔드 포인트 주소가
+변경될 수 있기 때문입니다. 서비스 액세스를 제어할 수 있도록 실제 엔드 포인트
+주소는 숨깁니다. </p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">문제점</a></h2>
+<p>서비스가 위치하는 엔드포인트의 실제 주소를 노출하지 않고 제어되는 방식으로
+클라이언트에서 서비스를 사용할 수 있도록 설정하는 방법입니다.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">자세한 내용</a></h2>
+<p>다음과 같은 경우 이 패턴을 사용하십시오.</p>
+<ul>
+	<li>서비스의 실제 위치(엔드 포인트 주소)를 클라이언트에 노출하지 않고 제어점을 통해
+	서비스 액세스를 제공해야 합니다.</li>
+	<li>몇 가지 형식의 제어(액세스 관리, 권한 부여, 감사 또는 로그 기록)는 이 서비스를
+	활성화할 때마다 적용되어야 합니다.</li>
+</ul>
+<p>조직 또는 부서 경계를 넘어 서비스를 노출하는 경우, 보안, 감사 추적 유지보수,
+안정성, 서비스 품질 및 통신 호환성과 같은 문제점을 고려해야
+합니다. </p>
+<p>서비스 배치의 유연성을 유지하는 것이 좋습니다. 예를 들어,
+서비스 엔드 포인트 주소가 변경되지 않은 것처럼 보이게 하여 서비스의
+클라이언트에 영향을 주지 않으면서 서비스를 다른 서버로 이동시킬 수 있습니다. </p>
+<p>서비스에서 지원되지 않는 프로토콜 바인딩은 특정 클라이언트 세트에
+적합하지 않을 수 있습니다. 한 가지 솔루션은 필요한 프로토콜을 지원하도록 서비스를 수정하는 것이지만
+대부분의 경우 이 방법은 바람직하지 않거나 수행 가능하지 않습니다.</p>
+<p>모든 클라이언트가 특정 제어점을 통해 간접적으로 액세스해야 하도록
+서비스의 실제 위치를 숨길 수 있습니다. 서비스의 실제 위치를 숨기면 감사 기능이나
+추가 클라이언트 인증 확인을 추가할 수 있습니다.</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">솔루션</a></h2>
+
+<p>동일한 인터페이스를 구현하는 Enterprise Service Bus(ESB)
+중개를 배치하여 대상 서비스를 숨깁니다.
+이 중개는 모든 요청을 실제 서비스 제공자로 방향 변경하는 가상 서비스 또는
+프록시 기능을 수행합니다. 클라이언트는 가상 서비스만 확인하는데, 이는 서비스의 실제 제공자인 것처럼 보입니다.</p>
+
+<p>일부 경우 가상 서비스가 실제 서비스에서 지원하는 바인딩에 대해
+다른 프로토콜 바인딩 세트를 지원할 수 있으므로
+중개의 일부로 필요한 프로토콜 변환을 제공할 수 있습니다.</p>
+<p>
+
+대부분의 단순 형식에서 중개는 각 요청을 사전 구성된 엔드 포인트 주소로 방향 변경합니다.
+보다 유연한 방법은 서비스 레지스트리에 대한 조회를 사용하여 실제 주소를 판별하고
+후속 요청에 사용하기 위해 이 값을 캐시하는 것입니다.</p>
+
+<p>가상 서비스 또는 중개에서 많은 추가 기능을 구현합니다. 일반 구현에서는
+중개가 감사를 위해 각 요청을 기록합니다. 가상 서비스는
+추가 레벨의 액세스 제어를 제공하여
+각 수신되는 요청과 연관된 신임을 확인할 수도
+있습니다.
+정교한 구현은 다른 보안 도메인 간의
+ID 맵핑을 제공하기도 합니다.</p>
+
+
+</div>
+</body>
+</html>

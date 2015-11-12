@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを使用して、サービス要求元とサービス・プロバイダーとの疎結合を提供します。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンのログ・サブフロー</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.logflow">
+<div class="section">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンのログ・サブフロー</h1>
+	<p class="shortdesc">
+ロギングが有効になっている場合、ログ・サブフローは、ユーザー定義プロパティー <span class="msobjprop">RequestLoggingOn</span> および <span class="msobjprop">ResponseLoggingOn</span> に従って要求および応答をログに記録します。
+</p>
+	<p>
+ログ・メッセージは、永続	WebSphere MQ メッセージとして	WebSphere MQ キューに書き込まれます。
+これらのログ・メッセージは、組織内の標準的な手法に従って個別に処理されます。
+メッセージ・ログには、元のメッセージと、MQRFH2 ヘッダー内の以下の情報が入ります。
+</p>
+	<ul>
+		<li>
+タイム・スタンプ
+</li>
+		<li>
+ブローカー名
+</li>
+		<li>
+メッセージ・フロー名
+</li>
+		<li>
+サービスの詳細
+</li>
+		<li>
+状況 (1 = 要求、2 = 応答、-2 = 障害)
+		</li>
+		
+	</ul>
+</div>
+<a href="overview.htm#anchor1" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+</body>
+</html>

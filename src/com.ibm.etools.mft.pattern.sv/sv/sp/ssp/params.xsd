@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="com.ibm.etools.mft.pattern.sv.sp.ssp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="com.ibm.etools.mft.pattern.sv.sp.ssp">
+
+    <xsd:simpleType name="validationEnum">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="None">
+                <xsd:annotation>
+                    <xsd:documentation>None</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="contentAndValue">
+                <xsd:annotation>
+                    <xsd:documentation>Content and Value</xsd:documentation>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:element name="root" type="Root"/>
+    <xsd:complexType name="Root">
+        <xsd:sequence>
+            <!-- Instance name -->
+            <xsd:element default="default" maxOccurs="1" minOccurs="1" name="instanceName" type="xsd:string"/>
+            <!-- Service information -->
+            <xsd:element maxOccurs="1" minOccurs="1" name="serviceWSDL" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="targetEndpoint" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="proxyUrl" type="xsd:string"/>
+            <!-- Validation information -->
+            <xsd:element default="None" maxOccurs="1" minOccurs="0" name="validationofRequest" type="validationEnum"/>
+            <xsd:element default="None" maxOccurs="1" minOccurs="0" name="validationofResponse" type="validationEnum"/>
+            <!-- Logging and error handling -->
+            <xsd:element default="false" maxOccurs="1" minOccurs="0" name="loggingRequired" type="xsd:boolean"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="logQueueManager" type="xsd:string"/>
+            <xsd:element default="LOG" maxOccurs="1" minOccurs="1" name="logQueue" type="xsd:string"/>
+            <xsd:element default="true" maxOccurs="1" minOccurs="0" name="errorMessageRequired" type="xsd:boolean"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="errorQueueManager" type="xsd:string"/>
+            <xsd:element default="ERROR" maxOccurs="1" minOccurs="1" name="errorQueue" type="xsd:string"/>
+            <!-- General -->
+            <xsd:element default="mqsi" maxOccurs="1" minOccurs="0" name="brokerSchema" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="flowPrefix" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="flowSuffix" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="queuePrefix" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="queueSuffix" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="shortDescription" type="xsd:string"/>
+            <xsd:element maxOccurs="1" minOccurs="0" name="longDescription" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

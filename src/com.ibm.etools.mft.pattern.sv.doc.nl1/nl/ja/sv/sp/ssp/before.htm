@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを使用する前に知っておくべき事柄や、必要なリソースについての詳細。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css" />
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css" />
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンを適用する前に完了するタスク</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.before">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンを適用する前に完了するタスク</h1>
+	<div class="p">
+		<p class="shortdesc">パターン・インスタンスを作成するためにパターンを適用する前に、以下のどのタスクが必要かを判別する必要があります。必要に応じて、以下のタスクを完了します。</p>
+	</div>
+		<p>必要に応じて、以下の必要なタスクを完了します。</p>
+
+<ul>
+<li>このパターンがビジネス要件を満たしていること、および要求元アプリケーションとプロバイダー・アプリケーションの両方でサポート可能であることを確認します。
+</li>
+<li>ターゲット・サービス・インターフェースを定義します。</li>
+<li>パターン・インスタンスに名前を付けます。適切な名前を決定できるように、パターン適用の目的を確認してください。</li>
+<li>ロギングが必要かどうかを決定します。
+ロギングが必要な場合、ロギング・メッセージがどのキュー・マネージャーおよびキューに送付されるかを決定する必要があります。他のブローカー・フロー用に既に存在する可能性のある、汎用のログ・キューにロギングを行う必要があります。
+作成しようとするパターン・インスタンス用として作成されるキューにロギングを行うこともできます。</li>
+<li>エラー・メッセージが必要かどうかを決定します。
+</li>
+<li>妥当性検査が必要かどうかを決定します。</li>
+<li>デプロイ可能な	WSDL をメッセージ・セット・プロジェクトに作成します。IBM Integration 資料の『WSDL の生成 (Generate WSDL)』を参照してください。</li>
+</ul>
+	<p>
+		<a href="overview.htm#anchorBack" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+	</p>
+</body>
+</html>

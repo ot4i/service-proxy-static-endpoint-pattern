@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="security" content="public"/>
+	<meta name="Robots" content="index,follow"/>
+	<meta name="DC.Type" content="reference"/>
+	<meta name="DC.Title" content="「サービス・プロキシー: 静的エンドポイント」パターン用のパターン・パラメーター"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターン用のパターン・パラメーターの詳細を示す表"/>
+	<meta name="description" content="「サービス・プロキシー: 静的エンドポイント」パターン用のパターン・パラメーターの詳細を示す表"/>
+	<meta name="DC.Format" content="XHTML"/>
+	<meta name="DC.Language" content="ja-jp"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->	
+	<link rel="stylesheet" type="text/css" href="../../../css/style2.css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンのパラメーター</title>	
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+	 <!-- START NON-TRANSLATABLE -->
+	<script language="JavaScript">
+	<!--
+
+	function getParameter(location, name) {
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		var search = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(search);
+		var results = regex.exec(location);
+		return (results == null ? true : (results[1] == "false" ? false : true));
+	}
+	
+	function addStyleSheet() {
+		if (getParameter(window.location.href, "everything") == false) {
+			var headId = document.getElementsByTagName("head")[0];         
+			var cssNode = document.createElement("link");
+			cssNode.type = "text/css";
+			cssNode.rel = "stylesheet";
+			cssNode.href = "../../../css/patterns.css";
+			cssNode.media = "screen";
+			headId.appendChild(cssNode);
+		}
+	}
+		
+	addStyleSheet(); // Depends on the query string!
+	
+	function getElementsByStyleClass (className) {
+  		var all = document.all ? document.all :
+    	document.getElementsByTagName('*');
+  		var elements = new Array();
+  		
+  		for (var e = 0; e < all.length; e++) {
+    		if (all[e].className == className) {
+      			elements[elements.length] = all[e];
+      		}
+      	}
+ 		return elements;
+	}
+	
+	function collapseAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.COLLAPSEALL');
+		}
+	}
+	
+	function expandAll() {
+		var elements = getElementsByStyleClass('twisty');
+		for (var e = 0; e < elements.length; e++) {
+			changeTwisty(elements[e], 'TWISTIE.EXPANDALL');
+		}
+	}
+	
+	function toggleTwisty(group) {
+		changeTwisty(group, 'TWISTIE.TOGGLE');
+		if (typeof kc === "object" && typeof kc.resize === "function") kc.resize();
+	}
+
+	function changeTwisty(group, mode) {		
+		whichGroupId = group.parentNode.id;
+
+		whichGroupContainerId = whichGroupId + "Container";
+		whichGroupTwistyId = whichGroupId + "Twisty";
+		whichGroupTwistyImageId = whichGroupId + "Arrow";
+		groupContainerObj = document.getElementById(whichGroupContainerId);
+		twistyArrowContainerObj = document.getElementById(whichGroupTwistyId);
+		twistyArrowImageObj = document.getElementById(whichGroupTwistyImageId);
+		group.parentNode.style.height = "auto";
+
+		var toShow = false;
+		
+		if (mode == 'TWISTIE.TOGGLE') {
+			if (groupContainerObj.style.display == "none" || groupContainerObj.style.display == "") {
+				toShow = true;
+			} else {
+				toShow = false;
+			}
+		} else if (mode == 'TWISTIE.EXPANDALL') {
+			toShow = true;
+		}
+		
+		if (toShow) {
+			groupContainerObj.style.visibility = "visible";
+			groupContainerObj.style.display = "block";
+			twistyArrowImageObj.src = '../../../images/twisty-open.png'
+			group.parentNode.style.height = (groupContainerObj.offsetHeight + 30) +'px'; 
+	
+		} else {
+			groupContainerObj.style.visibility = "hidden";
+			groupContainerObj.style.display = "none";
+			twistyArrowImageObj.src = '../../../images/twisty-closed.png'
+		}
+	
+	}
+	//-->
+	</script>
+	 <!-- END NON-TRANSLATABLE -->
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.parametertable">
+	<!-- Page main title -->
+  	<div id="title" class="invisible">
+		<h1 class="patterns-title">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンのパラメーター</h1>
+  	</div>
+
+
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="serviceInformation">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="serviceInformationTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="serviceInformationArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">サービス情報
+</div>
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="serviceInformationContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">パターン・パラメーター</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">デフォルト
+</th>
+												  <th valign="top" width="*">説明</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+サービス・プロバイダー用の	WSDL</th>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>このパラメーターは、プロキシーを作成するサービスのインターフェースを定義するデプロイ可能な WSDL ファイルを定義します。
+</p>
+		                        <p>デプロイ可能な WSDL ファイルをワークスペース・メッセージ・セットから選択する必要があります。</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+サービス・プロバイダーの URL</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>このパラメーターは、プロキシーを作成するサービスが存在するエンドポイントを定義します。</p>
+    <p>指定されていない場合、エンドポイントは WSDL ファイルのバインディング情報から決定されます。</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+プロキシー URL</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+    <p>このパラメーターは、デプロイされるプロキシーのエンドポイントを定義するために使用される URL パスを定義します。</p>
+    <p>完全なサービス・アドレスには、ホスト名およびポートも含まれます。これは、プロキシーがデプロイされるときに決定されます。
+</p>
+		                        <p>パスが指定されていない場合、サービス WSDL のパスが使用されます。</p> 
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+SOAP 要求の妥当性検査
+</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">なし</span>
+</td>
+														<td valign="top" width="*">
+															
+    <p>着信 SOAP メッセージは、このパラメーターで定義されたとおりに妥当性検査されます。
+</p>
+    <p> 有効な値は以下のとおりです。
+										</p>
+    <ul>
+        <li> <span class="msobjpropval">なし</span></li> 
+        <li> <span class="msobjpropval">内容と値
+</span></li></ul>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+SOAP 応答の妥当性検査
+</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	<span class="msobjpropval">なし</span>
+</td>
+														<td valign="top" width="*">
+															
+    <p>SOAP 応答は、このパラメーターで定義されたとおりに妥当性検査されます。
+</p>
+    <p> 有効な値は以下のとおりです。
+										</p>
+    <ul>
+        <li> <span class="msobjpropval">なし</span></li> 
+        <li> <span class="msobjpropval">内容と値
+</span></li></ul>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="log">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="logTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="logArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">ロギング
+</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="logContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">パターン・パラメーター</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">デフォルト
+</th>
+												  <th valign="top" width="*">説明</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+必要なロギング</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+クリア済み
+</td>
+														<td valign="top" width="*">
+															
+	                        <p>このパターン・パラメーターは、ロギング用のコードをパターン・インスタンスに含めるかどうかを決定します。</p>
+	                        <p>「<span class="msobjprop">必要なロギング</span>」が非選択の場合、ログ・サブフローは含まれません。</p>
+	                        <p>「<span class="msobjprop">必要なロギング</span>」が選択されている場合、ログ・サブフローがメッセージ・フローに含まれ、「<span class="msobjprop">ログ・キュー・マネージャー</span>」と「<span class="msobjprop">ログ・キュー</span>」の値を設定する必要があります。</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+ログ・キュー・マネージャー
+</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>このパターン・パラメーターは、ロギング用のキュー・マネージャーを定義します。
+ロギングにブローカー・キュー・マネージャーが使用される場合、これをブランクのままにすることができます。
+</p>
+	                        <p>このパラメーターは、「<span class="msobjprop">必要なロギング</span>」が選択されている場合にのみ必要です。
+	                        </p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+															ログ・キュー</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="*" class="invisible">
+																		<span class="msobjpropval">LOG</span>
+														</td>
+														<td valign="top" width="*">
+															
+							<p>このパターン・パラメーターは、ロギング用のキューを定義します。</p>
+							<p>このパラメーターは、「<span class="msobjprop">必要なロギング</span>」が選択されている場合にのみ必要です。
+</p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+	
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="errorHandling">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="errorHandlingTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="errorHandlingArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">エラー処理</div>
+						
+						
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="errorHandlingContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">パターン・パラメーター</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">デフォルト
+</th>
+												  <th valign="top" width="*">説明</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+必要なエラー・メッセージ
+</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+選択済み
+</td>
+														<td valign="top" width="*">
+															
+	                        <p>このパターン・パラメーターは、エラー・メッセージを作成するメッセージ・フロー・エレメントがパターン適用によって作成されるかどうかを定義します。</p>
+	                        <p>「<span class="msobjprop">必要なエラー・メッセージ</span>」が選択されている場合、「<span class="msobjprop">エラー・キュー・マネージャー</span>」および「<span class="msobjprop">エラー・キュー</span>」の値を設定する必要があります。
+</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+エラー・キュー・マネージャー
+</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>このパターン・パラメーターは、エラー・メッセージ用のキュー・マネージャーを定義します。
+ロギングにブローカー・キュー・マネージャーが使用される場合、これをブランクのままにすることができます。
+</p>
+	                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+エラー・キュー</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	はい
+														</td>
+														<td valign="top" width="*" class="invisible">
+																			<span class="msobjpropval">ERROR</span>
+														</td>
+														<td valign="top" width="*">
+															
+	                        <p>このパターン・パラメーターは、エラー・メッセージ用のキューを定義します。</p>
+	                        <p>このパラメーターは、<span class="msobjprop">必要なエラー・メッセージ
+</span>が選択されている場合のみ必要です。	                        </p>
+	                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+							
+					  	</div>
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+		<div class="box first">
+			<div class="TitleBox"><!-- --></div>
+			<div class="FooterBox"><!-- --></div>
+			<div class="TL"><!-- --></div>
+			<div class="TR"><!-- --></div>
+			<div class="BL"><!-- --></div>
+			<div class="BR"><!-- --></div>
+			<div class="ContentBox">
+				<div class="border">
+					<div class="groupBox" id="general">
+						<div class="twisty" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" role="menubar" id="generalTwisty">
+							<img src="../../../images/twisty-closed.png"
+								name="b" id="generalArrow" alt=""></img>
+						</div>
+						<div class="twistyTitle" onmouseup="toggleTwisty(this)" onkeyup="toggleTwisty(this)" tabindex="0" role="menubar">その他
+</div>
+						
+								
+								
+								
+								
+								
+								
+								
+						
+						<div style="visibility: hidden; display: none;" class="groupBoxContainer" id="generalContainer">
+								<div class="tablenoborder">
+									<table summary="" width="100%" border="1" cellpadding="4" cellspacing="0" frame="border" rules="all">
+										<thead align="left">
+											<tr>
+												  <th class="firstcol" align="left" valign="top" width="*">パターン・パラメーター</th>
+												  <th class="invisible" valign="top" width="*">M</th>
+												  <th class="invisible" valign="top" width="*">C</th>
+												  <th class="invisible" valign="top" width="*">デフォルト
+</th>
+												  <th valign="top" width="*">説明</th>
+											</tr>
+										</thead>
+										<tbody>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+ブローカー・スキーマ</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																			<span class="msobjpropval">mqsi</span>
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>ブローカー・スキーマが定義されている場合、メッセージ・フローおよび ESQL ファイルがそのスキーマ内に作成されます。
+スキーマが定義されていない場合、デフォルトのブローカー・スキーマが使用されます。</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+フロー接頭部</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>設定されている場合、この接頭部はすべてのメッセージ・フロー名の先頭に追加されます。</p>
+		                        <p>メッセージ・フロー名で有効な文字のみを使用できます。</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+フロー接尾部</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>設定されている場合、この接尾部はすべてのメッセージ・フロー名の末尾に追加されます。</p>
+		                        <p>メッセージ・フロー名で有効な文字のみを使用できます。</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+キュー接頭部</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>設定されている場合、この接頭部はすべてのキュー名の先頭に追加されます。		                        </p>
+		                        <p>デフォルトのキュー名が使用されている場合、各パターン・インスタンスのキュー名を識別するために接頭部、接尾部、またはその両方を設定する必要があります。
+
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+キュー接尾部</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>設定されている場合、この接尾部はすべてのキュー名の末尾に追加されます。</p>
+								<p>デフォルトのキュー名が使用されている場合、各パターン・インスタンスのキュー名を識別するために接頭部、接尾部、またはその両方を設定する必要があります。
+
+		                        </p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+簡略説明</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>この説明は、生成されるすべてのメッセージ・フローの「<span class="msobjprop">簡略説明</span>」プロパティーに追加されます。
+</p>
+		                        
+														</td>
+													</tr>
+													<tr>
+														<th align="left" valign="top" width="*" class="firstcol">
+詳細説明</th>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="*" class="invisible">
+																	いいえ
+														</td>
+														<td valign="top" width="2*" class="invisible">
+																	&nbsp;
+														</td>
+														<td valign="top" width="*">
+															
+		                        <p>この説明は、生成されるすべてのメッセージ・フローの「<span class="msobjprop">詳細説明</span>」プロパティーに追加されます。
+</p>
+		                        
+														</td>
+													</tr>
+										</tbody>
+									</table>
+							  	</div>
+					  	</div>
+						  	
+			  		</div>
+		  		</div>
+			</div>
+		</div>
+
+<div id="footnotes" class="invisible">
+	<div class="box first">
+		<div class="TitleBox"><!-- --></div>
+		<div class="FooterBox"><!-- --></div>
+		<div class="TL"><!-- --></div>
+		<div class="TR"><!-- --></div>
+		<div class="BL"><!-- --></div>
+		<div class="BR"><!-- --></div>
+		<div class="ContentBox">
+			<div class="invisible">
+				<p class="shortdesc">
+すべてのパターン・パラメーターとそのデフォルト値をリストします。
+				</p>
+				<p>
+<b>M</b> という見出しの列は、プロパティーが<dfn class="term">必須</dfn> かどうかを示します。<b>C</b> という見出しの列は、プロパティーが<dfn class="term">構成可能</dfn>かどうか、つまり、メッセージ・フローをブローカー・アーカイブ (BAR) ファイルに追加するときに値を変更できるかどうかを示します。
+				</p>
+				<p>
+デフォルトが示されていない場合、デフォルト値は空ストリングです。
+				</p>
+			</div>
+		<a href="overview.htm#anchorBack" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+	<p></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

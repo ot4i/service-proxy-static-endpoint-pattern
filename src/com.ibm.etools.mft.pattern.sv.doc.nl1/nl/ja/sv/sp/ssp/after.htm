@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="「サービス・プロキシー: 静的エンドポイント」パターンを生成した後に完了するタスク。"/>
+	<meta name="description" content=""/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>「サービス・プロキシー: 静的エンドポイント」パターンを生成した後に完了するタスク</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.after">
+	<h1 class="topictitle1">「<span>サービス・プロキシー: 静的エンドポイント</span>」パターンを生成した後に完了するタスク</h1>
+	<p class="shortdesc">パターンを生成した後に完了する必要があるタスクです。</p>
+<ol>
+<li>ブローカー・アーカイブ (BAR) ファイルを作成します。生成されたメッセージ・フローを BAR ファイルに追加します。BAR ファイルを作成する前に、「ブローカー・アーカイブ」エディターで、<span class="uicontrol">「リソースのコンパイルおよびインライン化」</span>オプションを選択しなければなりません。</li>
+<li>ブローカー・アーカイブ・ファイルを構成します。「<span>サービス・プロキシー: 静的エンドポイント</span>」パターン・インスタンス用のメッセージ・フローをデプロイする前は、ブローカー・アーカイブ・ファイル内のメッセージ・フローをこれ以上構成する必要はありませんが、いくつかのデフォルト・オプションを検討して、環境に応じて構成を変更することもできます。
+<p>「<span class="uicontrol">ブローカー・アーカイブ</span>」エディターの「<span class="uicontrol">管理</span>」ページで、次のようにします。</p>
+<ul>
+	<li>オプション: ユーザー定義プロパティー	<span class="msobjprop">RequestLoggingOn</span> を使用して、メッセージ・フローの要求のロギングをオン/オフのどちらに設定するかを選択します。</li>
+	<li>オプション: ユーザー定義プロパティー	<span class="msobjprop">ResponseLoggingOn</span> を使用して、メッセージ・フローの応答のロギングをオン/オフのどちらに設定するかを選択します。</li>
+	<li>オプション: ユーザー定義プロパティー <span class="msobjprop">ErrorLoggingOn</span>	を使用して、エラー・メッセージを生成するかどうかを選択します。</li>
+	<li>オプション: ブローカー・アーカイブの中の構成可能な任意のプロパティーを変更することもできます (例えばセキュリティーや追加のインスタンス作成に関するプロパティー)。
+値の変更によってパターン・インスタンスの動作が影響を受けないことを確認する必要があります。</li>
+	<li>WSDL ファイルで定義されたトランスポートが HTTPS である場合、追加の SSL 構成が必要になります。IBM Integration 資料の『SSL 認証の実装 (Implementing SSL Authentication)』を参照してください。</li>
+</ul></li>
+<li>キューを作成します。パターンを適用するとき、キュー名とキュー・マネージャー名を使用して WebSphere MQ キューのリストが生成されます。
+これらの WebSphere MQ キューがまだ存在しない場合は、これらを作成する必要があります。
+パターンで必要とされるすべてのメッセージ設定はメッセージで明示的に設定されます (キューの設定には依存しません)。</li>
+<li>要約ファイルで、作成が必要なキューのリストを表示します。要約ファイルは、<i>InstanceName</i> パターン・インスタンス・プロジェクトのパターン構成フォルダーに配置されています。</li>
+<li><span>WebSphere MQ</span> リソースを作成します。<span>WebSphere MQ</span> リソースを作成するには、コマンド行または (<span class="cmdname">runmqsc</span> などの) プログラムやユーティリティーを使用するか、<span>WebSphere MQ</span> Explorer グラフィカル・インターフェースを使用できます。
+<span>WebSphere MQ</span> リソースの作成に関する詳細は、<img src="../../../images/external_link.gif" alt="このリンクをクリックすると新しいウィンドウが開きます" class="external_link" /> <a href="http://www.ibm.com/software/integration/wmq/library/" target="_blank">WebSphere MQ ライブラリー Web ページ</a>で「<span>WebSphere MQ</span> Intercommunication」を参照してください。
+</li>
+<li>BAR ファイルをデプロイします。同じまたは別の BAR ファイルを使用して、デプロイ可能な WSDL を含むメッセージ・セットをデプロイする必要があります。
+<p>プロキシー・サービスのアドレスがデプロイメント後に決定され、リクエスターに公開されます。実行グループの HTTPCOnnector プロパティーを決定するために、<span class="cmdname">mqsireportproperties</span> コマンドを使用してこの情報を取得することができます。
+</p></li>
+</ol>
+	<p>
+		<a href="overview.htm#anchorBack" title="戻る">「サービス・プロキシー: 静的エンドポイント」パターンの仕様に戻る</a>
+	</p>
+</body>
+</html>

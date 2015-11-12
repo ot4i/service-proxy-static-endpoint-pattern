@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="サービス・プロキシー・パターンを使用すると、サービスの間接化の段階が 1 つ追加され、サービス要求元とサービス・プロバイダーとの間の分離が最大になります。"/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>サービス・プロキシー・パターン</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1"><span>サービス・プロキシー</span>・パターン</h1>
+<div>
+<p class="shortdesc">このパターンを使用すると、サービスの間接化の段階が 1 つ追加され、サービス要求元とサービス・プロバイダーとの間の分離が最大になります。
+</p>
+<p>最も基本的な形では、サービス・プロキシー・パターンはサービス実装の実際の場所を隠します。
+このパターンは、アクセス制御、要求のトラッキング、および監査の管理ポイントを設ける面でも特別な価値があります。
+</p>
+<div class="image"><img src="./serviceproxy.gif" alt="サービス・プロキシー・アーキテクチャーの図"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">コンテキスト</a></h2>
+<p>クライアントはサービス上の操作を呼び出す必要があります。サービスが存在するエンドポイントのアドレス、または実際のエンドポイントのアドレスは変わる可能性があるため、クライアントはサービスに直接アクセスしてはなりません。
+実際のエンドポイントのアドレスは、サービスへのアクセスを制御できるようにするために隠されています。
+</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">問題</a></h2>
+<p>どのようにして、サービスが存在するエンドポイントの実アドレスを公開せずに、制御された方法でクライアントがサービスを使用できるようにするか。
+</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">選択についてのガイダンス</a></h2>
+<p>以下のような場合に、このパターンを使用します。</p>
+<ul>
+	<li>サービスの実際の場所 (エンドポイント・アドレス) をクライアントに公開せずに、制御点を介してサービスへのアクセスを提供する必要がある。
+</li>
+	<li>サービスがアクティブになるたびに、何らかの形式の制御 (アクセス管理、許可、監査、またはロギング) を適用する必要がある。
+</li>
+</ul>
+<p>サービスが組織や部門の境界を超えて公開される場合、セキュリティー、監査証跡の保守、信頼性、サービス品質、および通信の互換性といった問題を考慮する必要があります。
+</p>
+<p>サービスのデプロイメントの柔軟性を保持することは望ましいことです。例えば、サービスを別のサーバーに移動しても、サービスのエンドポイントのアドレスが変わっていないように見せることで、サービスのどのクライアントにも影響が及ばないようにできます。
+</p>
+<p>サービスでサポートされるプロトコル・バインディングが、特定のクライアントのセットにとって適切でないことがあります。
+必要なプロトコルをサポートするようにサービスを変更することは 1 つの解決策ですが、この解決策が望ましくない、あるいは不可能な場合も少なくありません。
+</p>
+<p>サービスの本当の場所を隠し、すべてのクライアントが特定の制御点を介して間接的にサービスにアクセスしなければならないようにすることもできます。
+サービスの実際の場所を隠すことによって、監査機能または追加のクライアント認証検査を追加できるようになります。
+</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">ソリューション</a></h2>
+
+<p>ターゲット・サービスは、同じインターフェースを実装するエンタープライズ・サービス・バス (ESB) メディエーションをデプロイすることによって隠されます。
+このメディエーションは、すべての要求を実際のサービス・プロバイダーに転送する仮想サービスまたはプロキシーとして機能します。
+クライアントには、サービスの実際のプロバイダーであるように見える仮想サービスのみが表示されます。</p>
+
+<p>仮想サービスは、実際のサービスによってサポートされるバインディングに対して、異なるプロトコル・バインディングのセットをサポートし、必要なプロトコル変換をメディエーションの一部として提供する場合があります。</p>
+<p>
+
+最も簡単な形では、メディエーションは各要求を、事前構成されたエンドポイント・アドレスに転送します。
+より柔軟なアプローチでは、サービス・レジストリーへの照会を使用して実アドレスを判別し、後続の要求で使用するためにこの値をキャッシングします。
+</p>
+
+<p>仮想サービスあるいはメディエーションは、多数の追加機能を実装します。典型的な実装では、メディエーションは各要求を監査目的でログに記録します。
+さらに、仮想サービスは追加レベルのアクセス制御を提供して、それぞれの着信要求に関連する資格情報を検査する場合もあります。
+より高度な実装として、異なるセキュリティー・ドメイン間の ID マッピングを提供するというものもあります。
+</p>
+
+
+</div>
+</body>
+</html>

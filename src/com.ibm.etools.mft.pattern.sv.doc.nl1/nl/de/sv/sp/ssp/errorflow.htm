@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="Verwenden Sie das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt), um eine lose Kopplung zwischen Servicerequestern und Serviceprovidern bereitzustellen."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Untergeordneter Fehlernachrichtenfluss für das Muster 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1">Untergeordneter Fehlernachrichtenfluss für das Muster <span>Service Proxy: static endpoint</span> (Service-Proxy: statischer Endpunkt)</h1>
+</div>
+<p class="shortdesc">Wenn während der Verarbeitung des Nachrichtenflusses ein Fehler auftritt, wird der untergeordnete Fehlernachrichtenfluss aufgerufen und an den Client wird eine Fehlernachricht zurückgesendet, die darauf hinweist, dass die Anforderung nicht erfolgreich ausgeführt werden konnte.</p> 
+<p>Wenn Sie die Musterinstanz für Fehlernachrichten aktiviert haben, wird eine Nachricht in die
+Fehlerwarteschlange geschrieben. Der untergeordnete Fehlernachrichtenfluss führt die folgenden Aktionen durch:</p>
+<ol>
+<li>Der untergeordnete Fehlernachrichtenfluss generiert eine SOAP-Fehlernachricht mit dem Hinweis,
+dass die Anforderung nicht erfolgreich war, und gibt diese an den Servicerequester zurück. Der
+SOAP-Fehler enthält Details zu der Ausnahme, durch die der Fehler im Nachrichtenfluss verursacht
+wurde.</li>
+<li>Wenn Sie die Musterparameter auch für Fehlernachrichten konfiguriert haben und die
+benutzerdefinierte Eigenschaft <span class="msobjprop">ErrorLoggingOn</span> ausgewählt ist, wird
+eine Fehlernachricht erzeugt und in die Fehlerwarteschlange geschrieben.
+<p>Details zur
+Ausnahmebedingung werden als XML-Nachricht geschrieben. Zu diesen Details gehören:</p>
+	<ul>
+	<li>Brokername</li>
+	<li>Nachrichtenflussname</li>
+	<li>Zeitmarke</li>
+	<li>Statuscode:
+		<ul>
+		<li>1 (wenn Anforderung weitergeleitet wurde)</li>
+		<li>2 (wenn Provider geantwortet hat)</li>
+		<li>-2 (wenn Provider einen Fehler zurückgibt)</li>
+		</ul></li>
+	<li>Servicename</li>
+	<li>Servicenamensbereich</li>
+	<li>Port</li>
+	<li>Porttyp</li>
+	<li>Operation</li>
+	<li>Zielendpunkt</li>
+	<li>Zusammenfassung der Ausnahmedaten</li>
+	</ul>
+	<p>Die Zusammenfassung der Ausnahmedaten enthält die Nachrichtenflussbezeichnung, Fehlernummer,
+Textbeschreibung und eine Liste mit Einfügungen, die weitere Details liefern.</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="Zurück">Zurück zur Spezifikation des Musters 'Service Proxy: static endpoint' (Service-Proxy: statischer Endpunkt)</a>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<povs xmlns:patterns="http://www.ibm.com/patterns">
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.instanceName" name="instanceName"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="serviceWSDL" povEditorId="com.ibm.etools.mft.patterns.model.edit.POVEditorAdapterWSDL"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="targetEndpoint"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="proxyUrl"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="validationofRequest"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="validationofResponse"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.log" name="loggingRequired">
+        <master>
+            <slave handler="com.ibm.etools.patterns.dependency.Enable" id="logQueueManager">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+            <slave handler="com.ibm.etools.patterns.dependency.Enable" id="logQueue">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+        </master>
+    </simplePov>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.log" name="logQueueManager"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.log" name="logQueue"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.errorHandling" name="errorMessageRequired">
+        <master>
+            <slave handler="com.ibm.etools.patterns.dependency.Enable" id="errorQueueManager">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+            <slave handler="com.ibm.etools.patterns.dependency.Enable" id="errorQueue">
+                <argument type="master">true</argument>
+                <argument type="slave">true</argument>
+            </slave>
+        </master>
+    </simplePov>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.errorHandling" name="errorQueueManager"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.errorHandling" name="errorQueue"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="brokerSchema"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="flowPrefix"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="flowSuffix"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="queuePrefix"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="queueSuffix"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="shortDescription"/>
+    <simplePov groupId="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="longDescription"/>
+    <Group description="description" expand="false" id="com.ibm.etools.mft.pattern.sv.sp.ssp.instanceName" name="instanceName" visible="false"/>
+    <Group description="description" expand="false" id="com.ibm.etools.mft.pattern.sv.sp.ssp.serviceInformation" name="serviceInformation" visible="true"/>
+    <Group description="description" expand="false" id="com.ibm.etools.mft.pattern.sv.sp.ssp.log" name="log" visible="true"/>
+    <Group description="description" expand="false" id="com.ibm.etools.mft.pattern.sv.sp.ssp.errorHandling" name="errorHandling" visible="true"/>
+    <Group description="description" expand="false" id="com.ibm.etools.mft.pattern.sv.sp.ssp.general" name="general" visible="true"/>
+	<ReferencedProject name="_Flows"/>
+</povs>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2008"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008"/>
+	<meta name="abstract" content="使用 Service Proxy: static endpoint 型樣，可以提供服務要求者與服務提供者之間的鬆散聯結。"/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Service Proxy: static endpoint 型樣的錯誤子流程</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js"></script>
+</head>
+<body id="sv.sp.ssp.errorflow">
+<div class="section">
+	<h1 class="topictitle1"><span>Service Proxy: static endpoint</span> 型樣的錯誤子流程</h1>
+</div>
+<p class="shortdesc">如果在訊息流程處理期間捕捉到錯誤，則會呼叫「錯誤」子流程，並將錯誤回應傳回給用戶端，指出要求未順利完成。</p> 
+<p>如果您已配置型樣實例以啟用錯誤訊息，則會在錯誤佇列中寫入訊息。「錯誤」子流程會採取下列動作：</p>
+<ol>
+<li>「錯誤」子流程會建置傳回給服務要求者的 SOAP 錯誤訊息，指出要求未順利完成。SOAP 錯誤包括導致訊息流程失敗的異常狀況明細。</li>
+<li>如果您已將型樣參數配置成包括錯誤訊息，並選取使用者定義的內容 <span class="msobjprop">ErrorLoggingOn</span>，則會準備錯誤訊息，並將它寫入錯誤佇列。
+<p>異常狀況的明細會寫入為 XML 訊息。這些明細包括：</p>
+	<ul>
+	<li>分配管理系統名稱</li>
+	<li>流程名稱</li>
+	<li>時間戳記</li>
+	<li>狀態碼：<ul>
+		<li>1（已轉遞要求時）</li>
+		<li>2（如果回覆提供者）</li>
+		<li>-2（如果提供者傳回錯誤）</li>
+		</ul></li>
+	<li>服務名稱
+</li>
+	<li>服務名稱空間</li>
+	<li>埠
+</li>
+	<li>埠類型
+</li>
+	<li>作業
+</li>
+	<li>目標端點</li>
+	<li>異常狀況資料的摘要</li>
+	</ul>
+	<p>異常狀況資料的摘要包含訊息流程標籤、錯誤碼、文字說明，以及提供進一步明細的插入項目清單。</p>
+</li>
+</ol>
+<a href="overview.htm#anchor1" title="上一步">回到 Service Proxy: static endpoint 型樣</a></body>
+</html>

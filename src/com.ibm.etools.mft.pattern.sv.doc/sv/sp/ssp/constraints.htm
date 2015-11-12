@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="copyright" content="Copyright IBM Corporation 2009"/>
+	<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2009"/>
+	<meta name="abstract" content="Details about what you need to know, and what resources you must have before you can use the Service Proxy: static endpoint pattern."/>
+	<!-- Licensed Materials Property of IBM -->
+	<!-- US Government Users Restricted Rights -->
+	<!-- Use, duplication or disclosure restricted by -->
+	<!-- GSA ADP Schedule Contract with IBM Corp. -->
+	<link rel="stylesheet" type="text/css" href="../../../css/ibmdita.css"/>
+	<link rel="stylesheet" type="text/css" href="../../../css/bip4.css"/>
+	<title>Constraints on the use of the Service Proxy: static endpoint pattern</title>
+	<script language="JavaScript" src="../../../help/LiveHelp.js" type="text/javascript"></script>
+</head>
+<body id="com.ibm.etools.mft.pattern.sv.sp.ssp.constraints">
+	<h1 class="topictitle1">Constraints on the use of the <span>Service Proxy: static endpoint</span> pattern</h1>
+	<div>
+		<p class="shortdesc">A number of constraints apply when you use this pattern.</p>
+	</div>
+		<p>You can use the 
+		<span>Service Proxy: static endpoint</span> pattern only if you are able to meet all of the following 
+		constraints:</p>
+<ul>
+	<li>Requests must be received as SOAP messages over HTTP or HTTPS.</li>
+	<li>Requesting applications must support a synchronous request response interaction style.</li>
+	<li>The target service must provide a SOAP over HTTP or HTTPS binding.</li>
+	<li>WSDLs defining the target service interface can have multiple port types and bindings, 
+	but only the first port type or binding is used for configuration of the generated pattern instance. 
+	You can select alternatives in the message flow editor.</li>
+	<li>If logging is required, the format that is used by this pattern is assumed to meet the requirements 
+	of your own environment.</li>
+	<li>You can deploy and run the application that is generated from the pattern instance to an integration node that has a queue manager.
+	To check whether your integration node has a queue manager, in the Integration Nodes view, select the integration node in the Properties view and check that the <b>Queue manager specified on the integration node</b> field is not blank. If the Properties view is not visible, click <b>Window > Show Properties</b>.
+	To specify a queue manager for an integration node, in the Integration Nodes view, right-click the target integration node and click <b>Change</b>, then enter the required queue manager name.</li>
+
+</ul>
+	<p>
+	<a href="overview.htm#anchorBack" title="Back">Back to the Service Proxy: static endpoint pattern specification</a>
+	</p>
+</body>
+</html>

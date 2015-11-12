@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de-de" xml:lang="de-de">
+<head><!-- 
+
+(C) COPYRIGHT International Business Machines Corp., 2009
+
+All Rights Reserved * Licensed Materials - Property of IBM
+
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="copyright" content="Copyright IBM Corporation 2008" />
+<meta name="DC.Rights.Owner" content="Copyright IBM Corporation 2008" />
+<meta name="abstract" content="Mit dem Muster 'Service-Proxy' können Sie durch Einführung einer weiteren Zwischenstufe für den Serviceaufruf eine maximale Entkopplung von Servicerequestern und Serviceprovidern bereitstellen."/>
+<!-- Licensed Materials Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../css/ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../css/bip4.css" />
+<title>Muster 'Service-Proxy'</title>
+<script language="JavaScript" src="../../../help/LiveHelp.js"></script></head>
+<body id="sv.sp.overview">
+<h1 class="topictitle1">Muster <span>Service-Proxy</span></h1>
+<div>
+<p class="shortdesc">Verwenden Sie dieses Muster zur Bereitstellung einer maximalen Entkopplung von Servicerequestern und Serviceprovidern durch Einführung einer weiteren Zwischenstufe für den Service.</p>
+<p>In seiner einfachsten Form verdeckt das Muster 'Service-Proxy' lediglich den wahren Standort einer Serviceimplementierung. 
+Das Muster kann aber auch zur Bereitstellung eines Verwaltungspunkts für die Zugriffssteuerung, Anforderungsüberwachung und Protokollierung verwendet werden.</p>
+<div class="image"><img src="./serviceproxy.gif" alt="Diagramm der Service-Proxy-Architektur"></img></div>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Context">Kontext</a></h2>
+<p>Der Client muss eine Operation an einem Service aufrufen. Der Client darf nicht direkt auf den Service zugreifen, da sich die Adresse des Endpunkts, auf dem sich der Service befindet, ändern kann. Die wahre Adresse des Endpunkts bleibt verdeckt, damit der Zugriff auf den Service gesteuert werden kann.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-Problem">Problem</a></h2>
+<p>Wie können Services auf kontrollierte Weise für Clients bereitgestellt werden, ohne die Adresse des Endpunkts, auf dem sich der Service befindet, offenzulegen.</p>
+
+</div>
+<div class="section"><h2><a name="ServiceProxy-SelectionGuidance">Kriterien für die Auswahl des Musters</a></h2>
+<p>Verwenden Sie dieses Muster in folgenden Fällen:</p>
+<ul>
+	<li>Wenn der Zugriff auf einen Service über einen Kontrollpunkt bereitgestellt werden muss, ohne den Clients den tatsächlichen Standort des Service (Endpunktadresse) offenzulegen.</li>
+	<li>Wenn bei jeder Aktivierung des Service eine bestimmte Form der Kontrolle (Zugriffsverwaltung, Autorisierung, Überwachung oder Protokollierung) erforderlich ist.</li>
+</ul>
+<p>Wenn Services über Unternehmens- oder Abteilungsgrenzen hinweg bereitgestellt werden, müssen Faktoren wie Sicherheit, Aufzeichnung von Prüfprotokollen, Zuverlässigkeit, Servicequalität und die Kompatibilität der Datenübertragung berücksichtigt werden.</p>
+<p>Die Serviceimplementierung sollte möglichst flexibel sein. Es sollte zum Beispiel möglich sein, den Service auf einen anderen Server zu verlagern, ohne dass dies Auswirkungen auf die Servicenutzer hat; für diese sollte die Adressänderung des Serviceendpunkts gar nicht in Erscheinung treten.</p>
+<p>Die vom Service unterstützten Protokollbindungen sind für bestimmte Clients unter Umständen nicht geeignet. Lösbar wäre dies durch eine Anpassung des Service an die erforderlichen Protokolle, eine Lösung, die in vielen Fällen jedoch nicht erwünscht oder nicht möglich ist.</p>
+<p>Eventuell möchten Sie den wahren Standort des Service verdecken; der Zugriff der Clients auf den Service würde dann indirekt über einen bestimmten Kontrollpunkt erfolgen. Durch das Verdecken des Servicestandorts können Prüffunktionen oder zusätzliche Clientauthentifizierungsprüfungen hinzugefügt werden.</p>
+
+</div>
+<div class="section"><h2><a name="SimpleServiceProxy-Solution">Lösung</a></h2>
+
+<p>Der Zielservice wird durch die Mediation mittels eines Enterprise Service Bus (ESB), durch die die gleiche Schnittstelle implementiert wird, verdeckt gehalten. 
+Diese Mediation wirkt wie ein virtueller Service bzw. wie ein Proxy, der alle Anforderungen an den tatsächlichen Serviceprovider weiterleitet. Auf der Clientseite wird nur der virtuelle Service angezeigt, der sich wie der tatsächliche Provider des Service darstellt.</p>
+
+<p>In einigen Fällen unterstützt der virtuelle Service andere Protokollbindungen als der eigentliche Service. In diesen Fällen müssen die entsprechenden Protokollkonvertierungen als Teil der Mediation bereitgestellt werden.</p>
+<p>
+
+In ihrer einfachsten Form leitet die Mediation die einzelnen Anforderungen an eine vorkonfigurierte Endpunktadresse weiter. 
+Flexibler wäre hingegen eine Lösung, bei der die tatsächliche Adresse mittels einer Abfrage in einem Service-Registry ermittelt und der ermittelte Wert für nachfolgende Anforderungen zwischengespeichert wird.</p>
+
+<p>Durch den virtuellen Service bzw. durch die Mediation werden eine Reihe zusätzlicher Funktionen implementiert. Bei einer typischen Implementierung werden die einzelnen Anforderungen zu Prüfzwecken protokolliert. Zudem kann der virtuelle Service eine zusätzliche Stufe der Zugriffssteuerung bereitstellen, indem er die Berechtigungsnachweise der eingehenden Anforderungen überprüft. 
+Eine erweiterte Implementierung könnte auch einen Identitätsabgleich zwischen verschiedenen Sicherheitsdomänen bereitstellen.</p>
+
+
+</div>
+</body>
+</html>
